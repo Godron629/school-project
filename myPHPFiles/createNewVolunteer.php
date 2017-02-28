@@ -9,21 +9,21 @@
 
 	function createVolunteer() {
 		if(volunteerExists()) {
-			volunteerExistsError();
-		} else {
-			if ($volunteerId = makeVolunteerRecord()) {
-				makePreferredAvailabilityRecord($volunteerId);
-				makePreferredDepartmentRecord($volunteerId);
+			return volunteerExistsError();
+		} 
 
-				if($emergencyContactId = emergencyContactExists()) {
-					joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
-				} else {
-					$emergencyContactId = makeEmergencyContactRecord();
-					joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
-				}
+		if ($volunteerId = makeVolunteerRecord()) {
+			makePreferredAvailabilityRecord($volunteerId);
+			makePreferredDepartmentRecord($volunteerId);
+
+			if($emergencyContactId = emergencyContactExists()) {
+				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 			} else {
-				echo "Error: Volunteer record creation unsuccessful <br>" . db_error();
+				$emergencyContactId = makeEmergencyContactRecord();
+				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 			}
+		} else {
+			echo "Error: Volunteer record creation unsuccessful <br>" . db_error();
 		}
 	}
 
@@ -97,12 +97,10 @@
 	}
 
 	function getDaysAndShiftsFromForm() {
-		$connection = db_connect();
-
 		$weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
 		$daysAndShifts = array();
 		
-		foreach ($weekdays as $key => $value) {
+		foreach ($weekdays as $value) {
 			$daysAndShifts[db_quote($value)] = ["AM" => db_quote($_POST[$value . 'AM']), "PM" => db_quote($_POST[$value . 'PM'])];
 		}
 		return $daysAndShifts;

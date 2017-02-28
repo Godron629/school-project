@@ -36,7 +36,6 @@ function db_query($query) {
 
 //Returns array of arrays with results
 function db_select($query) {
-	$connection = db_connect();
 	$result = db_query($query);
 	$rows = array();
 
