@@ -44,7 +44,6 @@ function db_select($query) {
 		echo "Bad query: " . db_error();
 		return false;
 	} else {
-		var_dump($result);
 		while($row = $result->fetch_assoc()) {
 			$rows[] = $row;
 		}
