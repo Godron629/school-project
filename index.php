@@ -72,14 +72,14 @@
 					<option value="ON">Ontario</option>
 					<option value="PE">Prince Edward Island</option>
 					<option value="QC">Quebec</option>
-					<option value="SK">Saskatchewan</option>
+					<option value="SK">Saskatchewan</option>	
 					<option value="NT">Northwest Territories</option>
 					<option value="NU">Nunavut</option>
 					<option value="YT">Yukon</option>
 				</select>	
 
 				<label for="postalCode">Postal Code:</label>
-				<input id="postalCode" type="text" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" placeholder="Ex. A0A 0A0" name="postalCode" required>
+				<input id="postalCode" type="text" pattern="[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]" placeholder="Ex. A0A 0A0" name="postalCode" required>
 
 				<label for="volunteerPrimaryPhone">Primary Phone:</label>
 				<input id="volunteerPrimaryPhone" type="text" placeholder="(123) 456-7890" 
