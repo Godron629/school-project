@@ -1,7 +1,7 @@
 <?php include 'databasePHPFunctions.php';
 
 	//See all of POST 
-	var_dump($_POST);
+	/*var_dump($_POST);*/
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		createVolunteer();
@@ -11,11 +11,19 @@
 		if(volunteerExists()) {
 			volunteerExistsError();
 		} else {
-			$volunteerId = makeVolunteerRecord();
-			$emergencyContactId = makeEmergencyContactRecord();
-			joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
-			makePreferredAvailabilityRecord($volunteerId);
-			makePreferredDepartmentRecord($volunteerId);
+			if ($volunteerId = makeVolunteerRecord()) {
+				makePreferredAvailabilityRecord($volunteerId);
+				makePreferredDepartmentRecord($volunteerId);
+
+				if($emergencyContactId = emergencyContactExists()) {
+					joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
+				} else {
+					$emergencyContactId = makeEmergencyContactRecord();
+					joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
+				}
+			} else {
+				echo "Error: Volunteer record creation unsuccessful <br>" . db_error();
+			}
 		}
 	}
 
@@ -30,8 +38,66 @@
 	}
 
 	function volunteerExistsError() {
-		$errorMessage = "A volunteer with that name already exists in the system. Please try again.";
-		echo "<script>alert('$errorMessage'); window.history.go(-1);</script>";
+		/*$errorMessage = "A volunteer with that name already exists in the system. Please try again.";
+		echo "<script>alert('$errorMessage'); window.history.go(-1);</script>";*/
+		echo "That volunteer exists already";
+	}
+
+	function makePreferredAvailabilityRecord($volunteerId) {
+		$connection = db_connect();
+		$daysAndShifts = getDaysAndShiftsFromForm();
+		
+		foreach($daysAndShifts as $key => $value) {
+			db_query("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES ($volunteerId, {$key}, {$value['AM']}, {$value['PM']})");
+		}
+
+		//Don't need to return the ID here
+		return wasAutoIncrementQuerySuccesful($connection);
+	}
+
+	function getDaysAndShiftsFromForm() {
+		$connection = db_connect();
+
+		$weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+		$daysAndShifts = array();
+		
+		foreach ($weekdays as $key => $value) {
+			$daysAndShifts[db_quote($value)] = ["AM" => db_quote($_POST[$value . 'AM']), "PM" => db_quote($_POST[$value . 'PM'])];
+		}
+		return $daysAndShifts;
+	}
+
+	function makePreferredDepartmentRecord($volunteerId) {
+		$connection = db_connect();
+		$selectedDepartments = getDepartmentsFromForm();
+
+		foreach($selectedDepartments as $key => $value) {
+			db_query("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES ($volunteerId, '{$key}', {$value})");
+		}
+		return wasAutoIncrementQuerySuccesful($connection);
+	}
+
+	function getDepartmentsFromForm() {
+		$connection = db_connect();
+
+		$selectedDepartments = [
+			"front" => db_quote($_POST["prefFront"]), 
+			"vio" => db_quote($_POST["prefVIO"]),
+			"kitchen" => db_quote($_POST["prefKitchen"]),
+			"warehouse" => db_quote($_POST["prefWarehouse"])
+		];
+		return $selectedDepartments;
+	}
+
+	function emergencyContactExists() {
+		$connection = db_connect();
+
+		$firstName = db_quote($_POST['emergencyFirstName']);
+		$lastName = db_quote($_POST['emergencyLastName']);
+
+		$rows = db_select("SELECT emergency_contact_id FROM emergency_contact WHERE emergency_contact_fname={$firstName} AND emergency_contact_lname={$lastName}");
+
+		return ($rows) ? $rows[0]['emergency_contact_id'] : false;
 	}
 
 	function makeVolunteerRecord() {
@@ -82,10 +148,8 @@
 
 		$firstName = db_quote($_POST['emergencyFirstName']);
 		$lastName = db_quote($_POST['emergencyLastName']);
-		$relationship = db_quote($_POST['emergencyRelationship']);
-		$phone = db_quote($_POST['emergencyPhone']);
 
-		db_query("INSERT INTO emergency_contact (emergency_contact_fname, emergency_contact_lname, emergency_contact_relationship, emergency_contact_phone) VALUES ($firstName, $lastName, $relationship, $phone)");
+		db_query("INSERT INTO emergency_contact (emergency_contact_fname, emergency_contact_lname) VALUES ($firstName, $lastName)");
 
 		return wasAutoIncrementQuerySuccesful($connection);
 	}
@@ -95,56 +159,12 @@
 
 		$volunteerId = db_quote($volunteerId);
 		$emergencyContactId = db_quote($emergencyContactId);
+		$relationship = db_quote($_POST['emergencyRelationship']);
+		$phone = db_quote($_POST['emergencyPhone']);
 
-		db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk) VALUES ($volunteerId, $emergencyContactId)");
-
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
-
-	function makePreferredAvailabilityRecord($volunteerId) {
-		$connection = db_connect();
-		$daysAndShifts = getDaysAndShiftsFromForm();
-		
-		foreach($daysAndShifts as $key => $value) {
-			db_query("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES ($volunteerId, {$key}, {$value['AM']}, {$value['PM']})");
-		}
+		db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES ($volunteerId, $emergencyContactId, $relationship, $phone)");
 
 		return wasAutoIncrementQuerySuccesful($connection);
-	}
-
-	function getDaysAndShiftsFromForm() {
-		$connection = db_connect();
-
-		$weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
-		$daysAndShifts = array();
-		
-		foreach ($weekdays as $key => $value) {
-			$daysAndShifts[db_quote($value)] = ["AM" => db_quote($_POST[$value . 'AM']), "PM" => db_quote($_POST[$value . 'PM'])];
-		}
-		return $daysAndShifts;
-	}
-
-	function makePreferredDepartmentRecord($volunteerId) {
-		$connection = db_connect();
-		$selectedDepartments = getDepartmentsFromForm();
-
-		foreach($selectedDepartments as $key => $value) {
-			db_query("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES ($volunteerId, '{$key}', {$value})");
-		}
-
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
-
-	function getDepartmentsFromForm() {
-		$connection = db_connect();
-
-		$selectedDepartments = [
-			"front" => db_quote($_POST["prefFront"]), 
-			"vio" => db_quote($_POST["prefVIO"]),
-			"kitchen" => db_quote($_POST["prefKitchen"]),
-			"warehouse" => db_quote($_POST["prefWarehouse"])
-		];
-		return $selectedDepartments;
 	}
 
 ?>
