@@ -43,6 +43,47 @@
 		echo "That volunteer exists already";
 	}
 
+	function makeVolunteerRecord() {
+		$connection = db_connect();
+
+		$firstName = db_quote($_POST['volunteerFirstName']);
+		$lastName = db_quote($_POST['volunteerLastName']);
+		$email = db_quote($_POST['volunteerEmail']);
+		$birthdate = db_quote($_POST['volunteerDOB']);
+		$gender = db_quote($_POST['volunteerGender']);
+		$address = db_quote($_POST['volunteerAddress']);
+		$city = db_quote($_POST['volunteerCity']);
+		$province = db_quote($_POST['province']);
+		$postalCode = db_quote($_POST['postalCode']);
+
+		$primaryPhone = removeSymbolsFromPhone($_POST['volunteerPrimaryPhone']);
+		$primaryPhone = db_quote($primaryPhone);
+
+		//Secondary phone is not requred
+		$secondaryPhone = getSecondaryPhoneFromForm();
+
+		//Volunteers are active by default
+		$volunteerStatus = true;
+
+		db_query("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES ($firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus)");
+
+		return wasAutoIncrementQuerySuccesful($connection);
+	}
+
+	function removeSymbolsFromPhone($phone) {
+       $phone = preg_replace("([^0-s]+)", "", $phone);
+       return $phone;
+    }
+
+   	function getSecondaryPhoneFromForm() {
+		if(empty($_POST['volunteerSecondaryPhone'])) {
+			return db_quote("None");
+		} else {
+			$phone = removeSymbolsFromPhone($_POST['volunteerSecondaryPhone']);
+			return db_quote($phone);
+		}
+	}
+
 	function makePreferredAvailabilityRecord($volunteerId) {
 		$connection = db_connect();
 		$daysAndShifts = getDaysAndShiftsFromForm();
@@ -100,39 +141,6 @@
 		return ($rows) ? $rows[0]['emergency_contact_id'] : false;
 	}
 
-	function makeVolunteerRecord() {
-		$connection = db_connect();
-
-		$firstName = db_quote($_POST['volunteerFirstName']);
-		$lastName = db_quote($_POST['volunteerLastName']);
-		$email = db_quote($_POST['volunteerEmail']);
-		$birthdate = db_quote($_POST['volunteerDOB']);
-		$gender = db_quote($_POST['volunteerGender']);
-		$address = db_quote($_POST['volunteerAddress']);
-		$city = db_quote($_POST['volunteerCity']);
-		$province = db_quote($_POST['province']);
-		$postalCode = db_quote($_POST['postalCode']);
-		$primaryPhone = db_quote($_POST['volunteerPrimaryPhone']);
-
-		//Secondary phone is not requred
-		$secondaryPhone = getSecondaryPhoneFromForm();
-
-		//Volunteers are active by default
-		$volunteerStatus = true;
-
-		db_query("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES ($firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus)");
-
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
-
-	function getSecondaryPhoneFromForm() {
-		if(empty($_POST['volunteerSecondaryPhone'])) {
-			return db_quote("None");
-		} else {
-			return db_quote($_POST['volunteerSecondaryPhone']);
-		}
-	}
-
 	function wasAutoIncrementQuerySuccesful($connection) {
 		if($connection->error) {
 			echo db_error();
@@ -160,7 +168,9 @@
 		$volunteerId = db_quote($volunteerId);
 		$emergencyContactId = db_quote($emergencyContactId);
 		$relationship = db_quote($_POST['emergencyRelationship']);
-		$phone = db_quote($_POST['emergencyPhone']);
+
+		$phone = removeSymbolsFromPhone($_POST['emergencyPhone']);
+		$phone = db_quote($phone);
 
 		db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES ($volunteerId, $emergencyContactId, $relationship, $phone)");
 
