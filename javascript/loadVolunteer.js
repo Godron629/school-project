@@ -19,6 +19,7 @@ $(document).ready(function() {
 				loadVolunteerIntoFields(data);
 				loadEmergencyContactIntoFields(data);
 				loadPreferredDepartmentsIntoFields(data);
+				loadPreferredAvailIntoFields(data);
 			}
 		});
 	});
@@ -56,13 +57,7 @@ function loadEmergencyContactIntoFields(data) {
 }
 
 function loadPreferredDepartmentsIntoFields(data) {
-	var $checkbox = $("#preferredDepartments input");
-
 	$("#preferredDepartments input:not([hidden])").removeAttr("checked");
-
-	/*if($("#preferredDepartments input[type='checkbox']").attr('hidden') == 'hidden') {
-		$('this').attr('checked', 'checked');
-	} */
 
 	for (var i = 0; i < data["Dep"].length; i++) {
 		var department = data["Dep"][i]["department"];
@@ -88,4 +83,59 @@ function loadPreferredDepartmentsIntoFields(data) {
 			}
 		}
 	}
+}
+
+function loadPreferredAvailIntoFields(data) {
+	$("#preferredTimes input:not([hidden])").removeAttr("checked");
+
+	for (var i = 0; i < data["Avail"].length; i++) {
+		var weekday = data["Avail"][i]["weekday"];
+		var am = data["Avail"][i]["am"];
+		var pm = data["Avail"][i]["pm"];
+
+		if(am === "yes") {
+			switch(weekday) {
+				case "monday": 
+					$("#mondayCheckAM").attr('checked', 'checked');
+					break;	
+				case "tuesday": 
+					$("#tuesdayCheckAM").attr('checked', 'checked');
+					break;	
+				case "wednesday": 
+					$("#wednesdayCheckAM").attr('checked', 'checked');
+					break;			
+				case "thursday": 
+					$("#thursdayCheckAM").attr('checked', 'checked');
+					break;	
+				case "friday": 
+					$("#fridayCheckAM").attr('checked', 'checked');
+					break;																		
+				default:
+					break;												
+			}
+		}
+
+		if(pm === "yes") {
+			switch(weekday) {
+				case "monday": 
+					$("#mondayCheckPM").attr('checked', 'checked');			
+					break;
+				case "tuesday": 
+					$("#tuesdayCheckPM").attr('checked', 'checked');			
+					break;
+				case "wednesday": 
+					$("#wednesdayCheckPM").attr('checked', 'checked');			
+					break;	
+				case "thursday": 
+					$("#thursdayCheckPM").attr('checked', 'checked');			
+					break;		
+				case "friday": 
+					$("#fridayCheckPM").attr('checked', 'checked');			
+					break;																	
+				default:
+					break;												
+			}
+		}
+	}
+
 }
