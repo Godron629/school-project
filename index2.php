@@ -1,12 +1,21 @@
 <!DOCTYPE html> <!-- Gideon Richter 2/22/2017 -->
 <html>
 <head>
-	<title>New Volunteer</title>
+	<title>Update Volunteer</title>
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+	<script src="javascript/loadVolunteer.js">
+	</script>
 </head>
 <body class="wrapper">
 
-<h1><img id="logo" src="images/logo.gif">New Volunteer</h1>
+<h1><img id="logo" src="images/logo.gif">Update Volunteer</h1>
 <div id="topRightNav">
 	<a href="#">Time Clock</a>
 	<a href="#">Logout</a>
@@ -28,9 +37,24 @@
 </div>
 
 <div class="container main">
+	<div class="selectVolunteerForm">
+		<form action="">
+			<select class="selectVolunteer" size="3">
+				<option value="" disabled selected>Select Volunteer...</option>
+				<?php include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
+					if ($result = db_select("SELECT * FROM volunteer ORDER BY volunteer_fname")) {
+						foreach ($result as $value) {
+							echo "<option value={$value['volunteer_id']}>{$value['volunteer_fname']}" . " " . "{$value['volunteer_lname']}" . "</option>";
+						}
+					}
+				?>
+			</select>
+		</form>
+	</div>
+
 	<div class="container leftSide blockLabels marginBottomTextBox" id="volunteerInformation">
 		<h2>Volunteer Information</h2>
-		<form action="php/createNewVolunteer.php" method="POST">
+		<form action="" method="POST">
 			<div id="volunteerInformationColumn1">
 				<label for="volunteerFirstName">First Name:</label>
 				<input id="volunteerFirstName" type="text" name="volunteerFirstName" required>
@@ -42,7 +66,7 @@
 				<input id="volunteerEmail" type="email" placeholder="example@email.com" name="volunteerEmail" required>
 
 				<label for="volunteerDOB">Date of Birth:</label>
-				<input type="date" name="volunteerDOB" required>
+				<input id="volunteerDOB" type="date" name="volunteerDOB" required>
 
 				<label id="volunteerGender">Gender:</label>
 				<select id="volunteerGender" name="volunteerGender" required>
@@ -202,8 +226,8 @@
 		</div>
 	</div>
 	<div class="container bigButtons" id="submitButtons">
-		<a href="index.php"><button type="button">Cancel</button></a>
-		<input type="submit" name="submitVolunteer">
+		<a href="index2.php"><button type="button">Cancel</button></a>
+		<input type="submit"  value="Save Changes" name="submitVolunteer">
 	</div>
 	</form>
 </div>

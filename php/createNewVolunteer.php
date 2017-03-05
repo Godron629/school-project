@@ -1,7 +1,5 @@
-<?php include 'databasePHPFunctions.php';
-
-	//See all of POST 
-	/*var_dump($_POST);*/
+<?php 
+include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		createVolunteer();
@@ -23,7 +21,7 @@
 				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 			}
 		} else {
-			echo "Error: Volunteer record creation unsuccessful <br>" . db_error();
+			echo "Error: Volunteer record creation unsuccessful:" . db_error();
 		}
 	}
 
@@ -38,8 +36,6 @@
 	}
 
 	function volunteerExistsError() {
-		/*$errorMessage = "A volunteer with that name already exists in the system. Please try again.";
-		echo "<script>alert('$errorMessage'); window.history.go(-1);</script>";*/
 		echo "That volunteer exists already";
 	}
 
@@ -91,8 +87,6 @@
 		foreach($daysAndShifts as $key => $value) {
 			db_query("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES ($volunteerId, {$key}, {$value['AM']}, {$value['PM']})");
 		}
-
-		//Don't need to return the ID here
 		return wasAutoIncrementQuerySuccesful($connection);
 	}
 
@@ -141,7 +135,6 @@
 
 	function wasAutoIncrementQuerySuccesful($connection) {
 		if($connection->error) {
-			echo db_error();
 			return false;
 		} else {
 			//Success: Return the autoincrement Id

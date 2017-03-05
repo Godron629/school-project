@@ -6,21 +6,19 @@
 */
 
 function db_connect() {
-
-	//Static so connection remains between calls
 	static $connection;
 
-	//Connect to database if not connected
 	if(!isset($connection)) {
 		//.ini file must be manually created
-		$config = parse_ini_file('../../config.ini');
+		$config = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/config.ini");
 		$connection = new mysqli($config['host'], $config['username'], $config['password'], $config['dbname'], $config['port']);
 	}
 
-	//Unsuccessful connection
 	if($connection === false) {
-		return $connection->connect_error;
+		echo db_error();
+		return false;
 	}
+
 	return $connection;
 }
 
@@ -29,24 +27,26 @@ function db_query($query) {
 	$result = $connection->query($query);
 
 	if($result === false) {
-		return db_error();
+		echo "Query Error: " . db_error();
+		return false;
 	}
+
 	return $result;
 }
 
 //Returns array of arrays with results
 function db_select($query) {
-	$result = db_query($query);
 	$rows = array();
+	$result = db_query($query);
 
 	if($result === false) {
-		echo "Bad query: " . db_error();
 		return false;
-	} else {
-		while($row = $result->fetch_assoc()) {
-			$rows[] = $row;
-		}
+	} 
+	
+	while($row = $result->fetch_assoc()) {
+		$rows[] = $row;	
 	}
+
 	return $rows;
 }
 
@@ -55,7 +55,6 @@ function db_error() {
 	return $connection->error;
 }
 
-//Escape values for user input
 function db_quote($value) {
 	$connection = db_connect();
 	return "'" . $connection->real_escape_string($value) . "'";
