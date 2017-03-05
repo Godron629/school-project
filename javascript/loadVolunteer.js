@@ -84,7 +84,7 @@ function loadPreferredDepartmentsIntoFields(data) {
 					$("#warehouseCheck").attr('checked', 'checked');
 					break;
 				default:
-					console.log("Default");
+					break;
 			}
 		}
 	}
