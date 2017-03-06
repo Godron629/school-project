@@ -2,28 +2,28 @@
 $(document).ready(function() {
 	$('.selectVolunteer').select2();
 
-/*	$("#loadButton").click(function() {*/
-	$(".selectVolunteer").on('change', function() {
+	/*	$("#loadButton").click(function() {*/
+		$(".selectVolunteer").on('change', function() {
 
-		var selection = {
-			id: $('.selectVolunteer').val()
-		}
-
-		$.ajax({
-			url: '../php/updateVolunteer.php',
-			type: 'POST',
-			data: selection,
-			dataType: 'json',
-			success: function(data) {
-				console.log(data);
-				loadVolunteerIntoFields(data);
-				loadEmergencyContactIntoFields(data);
-				loadPreferredDepartmentsIntoFields(data);
-				loadPreferredAvailIntoFields(data);
+			var selection = {
+				id: $('.selectVolunteer').val()
 			}
+
+			$.ajax({
+				url: '../php/loadUpdateFields.php',
+				type: 'POST',
+				data: selection,
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
+					loadVolunteerIntoFields(data);
+					loadEmergencyContactIntoFields(data);
+					loadPreferredDepartmentsIntoFields(data);
+					loadPreferredAvailIntoFields(data);
+				}
+			});
 		});
-	});
-});		
+	});		
 
 function loadVolunteerIntoFields(data) {
 	$("#volunteerFirstName").attr("value", data['Volunteer'].volunteer_fname);
@@ -66,20 +66,20 @@ function loadPreferredDepartmentsIntoFields(data) {
 		if(allow === "yes") {
 			switch(department) {
 				case "front": 
-					console.log("Hello!");
-					$("#frontCheck").attr('checked', 'checked');
-					break;
+				console.log("Hello!");
+				$("#frontCheck").attr('checked', 'checked');
+				break;
 				case "vio":
-					$("#volunteerCheck").attr('checked', 'checked');
-					break;
+				$("#volunteerCheck").attr('checked', 'checked');
+				break;
 				case "kitchen":
-					$("#kitchenCheck").attr('checked', 'checked');
-					break;
+				$("#kitchenCheck").attr('checked', 'checked');
+				break;
 				case "warehouse":
-					$("#warehouseCheck").attr('checked', 'checked');
-					break;
+				$("#warehouseCheck").attr('checked', 'checked');
+				break;
 				default:
-					break;
+				break;
 			}
 		}
 	}
@@ -96,44 +96,44 @@ function loadPreferredAvailIntoFields(data) {
 		if(am === "yes") {
 			switch(weekday) {
 				case "monday": 
-					$("#mondayCheckAM").attr('checked', 'checked');
-					break;	
+				$("#mondayCheckAM").attr('checked', 'checked');
+				break;	
 				case "tuesday": 
-					$("#tuesdayCheckAM").attr('checked', 'checked');
-					break;	
+				$("#tuesdayCheckAM").attr('checked', 'checked');
+				break;	
 				case "wednesday": 
-					$("#wednesdayCheckAM").attr('checked', 'checked');
-					break;			
+				$("#wednesdayCheckAM").attr('checked', 'checked');
+				break;			
 				case "thursday": 
-					$("#thursdayCheckAM").attr('checked', 'checked');
-					break;	
+				$("#thursdayCheckAM").attr('checked', 'checked');
+				break;	
 				case "friday": 
-					$("#fridayCheckAM").attr('checked', 'checked');
-					break;																		
+				$("#fridayCheckAM").attr('checked', 'checked');
+				break;																		
 				default:
-					break;												
+				break;												
 			}
 		}
 
 		if(pm === "yes") {
 			switch(weekday) {
 				case "monday": 
-					$("#mondayCheckPM").attr('checked', 'checked');			
-					break;
+				$("#mondayCheckPM").attr('checked', 'checked');			
+				break;
 				case "tuesday": 
-					$("#tuesdayCheckPM").attr('checked', 'checked');			
-					break;
+				$("#tuesdayCheckPM").attr('checked', 'checked');			
+				break;
 				case "wednesday": 
-					$("#wednesdayCheckPM").attr('checked', 'checked');			
-					break;	
+				$("#wednesdayCheckPM").attr('checked', 'checked');			
+				break;	
 				case "thursday": 
-					$("#thursdayCheckPM").attr('checked', 'checked');			
-					break;		
+				$("#thursdayCheckPM").attr('checked', 'checked');			
+				break;		
 				case "friday": 
-					$("#fridayCheckPM").attr('checked', 'checked');			
-					break;																	
+				$("#fridayCheckPM").attr('checked', 'checked');			
+				break;																	
 				default:
-					break;												
+				break;												
 			}
 		}
 	}
