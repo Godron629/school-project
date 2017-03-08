@@ -1,3 +1,5 @@
+var origForm = '';
+
 //Make the .selectVolunteer select searchable
 $(document).ready(function() {
 	$('.selectVolunteer').select2();
@@ -20,12 +22,16 @@ $(document).ready(function() {
 					loadEmergencyContactIntoFields(data);
 					loadPreferredDepartmentsIntoFields(data);
 					loadPreferredAvailIntoFields(data);
+					//Serialize form for if form changed comparison in updateVolunteer.js
+					var $form = $('form');
+					origForm = $form.serialize();
 				}
 			});
 		});
 	});		
 
 function loadVolunteerIntoFields(data) {
+	$("#volunteerId").attr("value", data['Volunteer'].volunteer_id);
 	$("#volunteerFirstName").attr("value", data['Volunteer'].volunteer_fname);
 	$("#volunteerLastName").attr("value", data['Volunteer'].volunteer_lname);
 	$("#volunteerEmail").attr("value", data['Volunteer'].volunteer_email);

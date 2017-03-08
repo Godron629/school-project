@@ -10,7 +10,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-	<script src="javascript/loadVolunteer.js">
+	<script src="javascript/loadVolunteer.js"></script>
+	<script src="javascript/updateVolunteer.js"></script>
 	</script>
 </head>
 <body class="wrapper">
@@ -56,7 +57,7 @@
 			<h2>Volunteer Information</h2>
 			<form action="" method="POST">
 				<div id="volunteerInformationColumn1">
-					<input type="text" name="volunteerId">
+					<input id="volunteerId" type="text" name="volunteerId" hidden>
 
 					<label for="volunteerFirstName">First Name:</label>
 					<input id="volunteerFirstName" type="text" name="volunteerFirstName" required>
@@ -228,9 +229,9 @@
 				</div>
 			</div>
 			<div class="container bigButtons" id="submitButtons">
-				<button class="deleteButton" type="button">Delete Volunteer</button>
-				<a href=""><button type="button">Cancel</button></a>
-				<input type="submit"  value="Save Changes" name="submitVolunteer">
+				<button type="button" class="deleteButton">Delete Volunteer</button>
+				<a href="index2.php"><button type="button">Cancel</button></a>
+				<button type="button" id="updateButton">Save Changes</button>
 			</div>
 		</form>
 	</div>

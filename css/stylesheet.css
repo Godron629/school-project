@@ -218,6 +218,8 @@ input[type='checkbox'] {
 .deleteButton {
 	color: white;
 	background-color: #AF0000;
+	border: 1px solid grey;
+	border-radius: 2px;
 }
 
 .deleteButton:hover {

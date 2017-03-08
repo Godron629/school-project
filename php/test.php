@@ -1,71 +1,62 @@
-<?php 
-include 'databasePHPFunctions.php';
-
-$result = db_select('SELECT * FROM volunteer');
-
-	$json = json_encode($result[1]);
-
+<?php
+	var_dump($_GET);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-	#textbox, #textbox2 {
-		display: block;
-		margin-bottom: 10px;
-	}	
+	<title>Deselect on Select</title>
 
-	select {
-		width: 300px;
-	}
-</style>
+	<style type="text/css"> 
+		input[type="submit"] {display: block; margin: 6px 0;}
+	</style>
 
-<title>Test</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-</script>
+	<script>
+		$(document).ready(function() {
+			$('select option').on('mousedown', function(event) {
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+				//Don't automatically just select it on click	
+				event.preventDefault();
 
-<script type="text/javascript">
-$(document).ready(function() {
-  $("#testSelect").select2();
-});
+				//ctrlKey is a boolean, whether or not the ctrl key has been pressed. So, make it always true.
+				event.ctrlKey = true;
 
-</script>
+				var $option = $(this);
 
-<script src="testjs.js"></script>
+				//Bring focus to the parent(select), manually done because preventDefault() prevents this
+				$option.parent().focus();
+
+				if($option.prop('selected')) {
+					$option.prop('selected', false);
+				} else {
+					$option.prop('selected', true);
+				}
+			});
+		});
+	</script>
 
 </head>
+
 <body>
 
+	<form method="GET" action="" id="testForm">
+		<select name="select1[]" multiple id="select1">
+			<option value="Car">Car</option>
+			<option value="Truck">Truck</option>
+			<option value="Jeep">Jeep</option>
+		</select>
 
-<table>
-	<select class="things" id="testSelect" multiple>
-		<?php 
-			$result = db_query("SELECT * FROM volunteer");
+		<select name="select2[]" multiple id="select2">
+			<option value="Cat">Cat</option>
+			<option value="Dog">Dog</option>
+			<option value="Mouse">Mouse</option>
+		</select>
 
-			foreach ($result as $key => $value) {
-				if($value['volunteer_status'] == 1) {
-					echo "<option>{$value['volunteer_fname']}</option>";
-				} else {
-					/*echo "<option>{$value['volunteer_fname']}</option>";*/
-					echo "<option class='inactive'>Butt</option>";
-				}
-			}
-		?>
-	</select>
-</table>
-
-<input class="checkTest" type="checkbox" name="checkthings">
-<input class="checkTest" type="checkbox" name="checkthings">
-<input class="checkTest" type="checkbox" name="checkthings">
-<input class="checkTest" type="checkbox" name="checkthings">
-<input class="checkTest" type="checkbox" name="checkthings">
-
-<button id="testButton" type="button">Load Volunteer</button>
+		<input type="submit" name="submitButton">
+		<a href="?"><button type="button">Clear $_GET</button></a>
+	</form>
 
 </body>
 </html>
