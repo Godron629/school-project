@@ -30,68 +30,70 @@ $(document).ready(function() {
 	});		
 
 function loadVolunteerIntoFields(data) {
-	$("#volunteerId").attr("value", data['Volunteer'].volunteer_id);
-	$("#volunteerFirstName").attr("value", data['Volunteer'].volunteer_fname);
-	$("#volunteerLastName").attr("value", data['Volunteer'].volunteer_lname);
-	$("#volunteerEmail").attr("value", data['Volunteer'].volunteer_email);
-	$("#volunteerDOB").attr("value", data['Volunteer'].volunteer_birthdate);
+	$("#volunteerId").val(data['Volunteer'].volunteer_id);
+	$("#volunteerFirstName").val(data['Volunteer'].volunteer_fname);
+	$("#volunteerLastName").val(data['Volunteer'].volunteer_lname);
+	$("#volunteerEmail").val(data['Volunteer'].volunteer_email);
+	$("#volunteerDOB").val(data['Volunteer'].volunteer_birthdate);
 
 	//remove selected attribute or else multiple options will be selected after changing the volunteer a few times
 	$("#volunteerGender option").removeAttr('selected');
 	$("#volunteerGender option[value=" + data['Volunteer'].volunteer_gender + "]").attr('selected', 'selected');
 
-	$("#volunteerAddress").attr("value", data['Volunteer'].volunteer_street);
-	$("#volunteerCity").attr("value", data['Volunteer'].volunteer_city);
+	$("#volunteerAddress").val(data['Volunteer'].volunteer_street);
+	$("#volunteerCity").val(data['Volunteer'].volunteer_city);
 
 	$("#province option").removeAttr('selected');
 	$("#province option[value=" + data['Volunteer'].volunteer_province + "]").attr('selected', 'selected');
 	
-	$("#postalCode").attr("value", data['Volunteer'].volunteer_postcode);
-	$("#volunteerPrimaryPhone").attr("value", data['Volunteer'].volunteer_primaryphone);
-	$("#volunteerSecondaryPhone").attr("value", data['Volunteer'].volunteer_secondaryphone);
+	$("#postalCode").val(data['Volunteer'].volunteer_postcode);
+	$("#volunteerPrimaryPhone").val(data['Volunteer'].volunteer_primaryphone);
+	$("#volunteerSecondaryPhone").val(data['Volunteer'].volunteer_secondaryphone);
 }
 
 function loadEmergencyContactIntoFields(data) {
-	$("#emergencyFirstName").attr("value", data['Volunteer'].emergency_contact_fname);
-	$("#emergencyLastName").attr("value", data['Volunteer'].emergency_contact_lname);
+	$("#emergencyFirstName").val(data['Volunteer'].emergency_contact_fname);
+	$("#emergencyLastName").val(data['Volunteer'].emergency_contact_lname);
 
 	$("#emergencyRelationship option").removeAttr('selected');
 	$("#emergencyRelationship option[value='" + data['Volunteer'].relationship + "']").attr('selected', 'selected');
 
-	$("#emergencyPhone").attr("value", data['Volunteer'].phone);
+	$("#emergencyPhone").val(data['Volunteer'].phone);
 }
 
 function loadPreferredDepartmentsIntoFields(data) {
-	$("#preferredDepartments input:not([hidden])").removeAttr("checked");
+	$("#preferredDepartments input:not([hidden])").prop("checked", false);
 
 	for (var i = 0; i < data["Dep"].length; i++) {
 		var department = data["Dep"][i]["department"];
 		var allow = data["Dep"][i]["allow"];
 
+		$("#preferredDepartments input[type='checkbox']").attr
+
 		if(allow === "yes") {
 			switch(department) {
 				case "front": 
-				console.log("Hello!");
-				$("#frontCheck").attr('checked', 'checked');
-				break;
+					console.log("Hello!");
+					$("#frontCheck").prop('checked', true);
+					break;
 				case "vio":
-				$("#volunteerCheck").attr('checked', 'checked');
-				break;
+					$("#volunteerCheck").prop('checked', true);
+					break;
 				case "kitchen":
-				$("#kitchenCheck").attr('checked', 'checked');
-				break;
+					$("#kitchenCheck").prop('checked', true);
+					break;
 				case "warehouse":
-				$("#warehouseCheck").attr('checked', 'checked');
-				break;
+					$("#warehouseCheck").prop('checked', true);
+					break;
 				default:
-				break;
+					break;
 			}
 		}
 	}
 }
 
 function loadPreferredAvailIntoFields(data) {
-	$("#preferredTimes input:not([hidden])").removeAttr("checked");
+	$("#preferredTimes input:not([hidden])").prop('checked', false);
 
 	for (var i = 0; i < data["Avail"].length; i++) {
 		var weekday = data["Avail"][i]["weekday"];
@@ -101,44 +103,44 @@ function loadPreferredAvailIntoFields(data) {
 		if(am === "yes") {
 			switch(weekday) {
 				case "monday": 
-				$("#mondayCheckAM").attr('checked', 'checked');
-				break;	
+					$("#mondayCheckAM").prop('checked', true);
+					break;	
 				case "tuesday": 
-				$("#tuesdayCheckAM").attr('checked', 'checked');
-				break;	
+					$("#tuesdayCheckAM").prop('checked', true);
+					break;	
 				case "wednesday": 
-				$("#wednesdayCheckAM").attr('checked', 'checked');
-				break;			
+					$("#wednesdayCheckAM").prop('checked', true);
+					break;			
 				case "thursday": 
-				$("#thursdayCheckAM").attr('checked', 'checked');
-				break;	
+					$("#thursdayCheckAM").prop('checked', true);
+					break;	
 				case "friday": 
-				$("#fridayCheckAM").attr('checked', 'checked');
-				break;																		
+					$("#fridayCheckAM").prop('checked', true);
+					break;																		
 				default:
-				break;												
+					break;												
 			}
 		}
 
 		if(pm === "yes") {
 			switch(weekday) {
 				case "monday": 
-				$("#mondayCheckPM").attr('checked', 'checked');			
-				break;
+					$("#mondayCheckPM").prop('checked', true);		
+					break;
 				case "tuesday": 
-				$("#tuesdayCheckPM").attr('checked', 'checked');			
-				break;
+					$("#tuesdayCheckPM").prop('checked', true);			
+					break;
 				case "wednesday": 
-				$("#wednesdayCheckPM").attr('checked', 'checked');			
-				break;	
+					$("#wednesdayCheckPM").prop('checked', true);		
+					break;	
 				case "thursday": 
-				$("#thursdayCheckPM").attr('checked', 'checked');			
-				break;		
+					$("#thursdayCheckPM").prop('checked', true);			
+					break;		
 				case "friday": 
-				$("#fridayCheckPM").attr('checked', 'checked');			
-				break;																	
+					$("#fridayCheckPM").prop('checked', true);	
+					break;																	
 				default:
-				break;												
+					break;												
 			}
 		}
 	}
