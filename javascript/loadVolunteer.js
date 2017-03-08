@@ -1,5 +1,4 @@
-var origForm = '';
-
+var origForm;
 //Make the .selectVolunteer select searchable
 $(document).ready(function() {
 	$('.selectVolunteer').select2();

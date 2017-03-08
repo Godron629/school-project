@@ -1,22 +1,16 @@
-var changeForm = '';
-
 $(document).ready(function() {
 
 	$("#updateButton").on('click', function() {
-
-		//Compared against original form for changes
 		var changedForm = serializeForm();
+		var volunteerId = $("#volunteerId").val();
 
-		//#volunteerId is a hidden text input that contains the Id of the loaded volunteer
-		var selection = $("#volunteerId").val();
-
-		if(selection) {
+		if(volunteerId) {
 			if(changedForm != origForm) {
 				if(confirm("Are you sure you want to save you changes?")) {
 					$.ajax({
 						url: "../php/updateVolunteer.php",
 						type: "POST", 
-						data: selection,
+						data: volunteerId,
 						success: function(data) {
 							console.log(data);
 						}
