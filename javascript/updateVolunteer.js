@@ -7,6 +7,7 @@ $(document).ready(function() {
 		//Compared against original form for changes
 		var changedForm = serializeForm();
 
+		//#volunteerId is a hidden text input that contains the Id of the loaded volunteer
 		var selection = $("#volunteerId").val();
 
 		if(selection != "") {
