@@ -10,7 +10,7 @@ $(document).ready(function() {
 		//#volunteerId is a hidden text input that contains the Id of the loaded volunteer
 		var selection = $("#volunteerId").val();
 
-		if(selection != "") {
+		if(selection) {
 			if(changedForm != origForm) {
 				if(confirm("Are you sure you want to save you changes?")) {
 					$.ajax({
