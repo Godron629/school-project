@@ -5,13 +5,12 @@ $(document).ready(function() {
 	$("#updateButton").on('click', function() {
 
 		//Compared against original form for changes
-		var $form2 = $('form')
-		changeForm = $form2.serialize();
+		var changedForm = serializeForm();
 
 		var selection = $("#volunteerId").val();
 
 		if(selection != "") {
-			if(changeForm != origForm) {
+			if(changedForm != origForm) {
 				if(confirm("Are you sure you want to save you changes?")) {
 					$.ajax({
 						url: "../php/updateVolunteer.php",
@@ -30,3 +29,10 @@ $(document).ready(function() {
 		}
 	});
 });
+
+
+function serializeForm() {
+	var $form = $('form');
+	var serializedForm = $form2.serialize();
+	return serializedForm
+}
