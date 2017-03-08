@@ -23,7 +23,7 @@ $(document).ready(function() {
 					});
 				} 
 			} else {
-					alert("No form fields have changed - Volunteer data unchanged");
+					alert("No form fields have changed - Volunteer records unchanged");
 			}
 		} else {
 				alert("Please select a volunteer");
