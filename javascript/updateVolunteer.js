@@ -1,10 +1,12 @@
+var volunteerId = '';
+
 $(document).ready(function() {
 
 	$("#updateButton").on('click', function() {
 		var changedForm = serializeForm();
 		var volunteerId = $("#volunteerId").val();
 
-		if(volunteerId) {
+		if(volunteerId != '') {
 			if(changedForm != origForm) {
 				if(confirm("Are you sure you want to save you changes?")) {
 					$.ajax({
@@ -28,6 +30,6 @@ $(document).ready(function() {
 
 function serializeForm() {
 	var $form = $('form');
-	var serializedForm = $form2.serialize();
+	var serializedForm = $form.serialize();
 	return serializedForm
 }
