@@ -5,11 +5,11 @@
 	}
 
 function updateVolunteer() {
-	$changedFields = findChangedFields();
+	$changedFields = changedFields();
 	echo json_encode($changedFields);
 }
 
-function findChangedFields() {
+function changedFields() {
 	$origForm = array();
 	$changeForm = array();
 
