@@ -12,7 +12,7 @@ $(document).ready(function() {
 					$.ajax({
 						url: "../php/updateVolunteer.php",
 						type: "POST", 
-						data: volunteerId,
+						data: { form1 : origForm, form2 : changedForm},
 						success: function(data) {
 							console.log(data);
 						}
