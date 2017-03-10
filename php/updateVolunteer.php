@@ -7,6 +7,7 @@
 function updateVolunteer() {
 	$changedFields = changedFields();
 	$changedColumns = fieldNameToDatabaseColumn($changedFields);
+	updateColumns($changedFields, $changedColumns);
 }
 
 function changedFields() {
@@ -62,7 +63,7 @@ function fieldNameToDatabaseColumn ($changedFields) {
 	/* Json file format
 	* {
 	*	"Volunteer" : {
-	*		"volunteerFirstName" : "volunteer_id",
+	*		"volunteerFirstName" : "volunteer_fname",
 	* 		...	
 	* 	}, 
 	* 	"EmergencyContact" : {...}
@@ -77,7 +78,7 @@ function fieldNameToDatabaseColumn ($changedFields) {
 	foreach ($fieldToColumnMap as $table => $value) {
 		if(is_array($value)) {
 			foreach ($value as $fieldName => $columnName) {
-				if(in_array($fieldName, $changedFields)) {
+				if(array_key_exists($fieldName, $changedFields)) {
 					$changedColumns[] = $columnName;
 				}	
 			}
@@ -85,6 +86,10 @@ function fieldNameToDatabaseColumn ($changedFields) {
 	}
 
 	return $changedColumns;
+}
+
+function updateColumns($changedFields, $changedColumns) {
+
 }
 		
 ?>

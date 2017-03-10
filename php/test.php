@@ -1,5 +1,4 @@
 <?php
-	$test = phpinfo();
 	var_dump($test);
 	$test = "hello";
 ?>
