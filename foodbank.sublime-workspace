@@ -1,0 +1,728 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
+				"eme",
+				"emerContactColumns"
+			],
+			[
+				"key",
+				"keysOfFieldsThatChanged"
+			],
+			[
+				"keys",
+				"keysOfFieldsThatChanged"
+			],
+			[
+				"sea",
+				"serializedForm"
+			],
+			[
+				"or",
+				"origForm"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"loadPre",
+				"loadPreferredAvailIntoFields"
+			],
+			[
+				"remove",
+				"removeAttr"
+			],
+			[
+				"load",
+				"loadPreferredAvailibility"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"block",
+				"blockLabels"
+			],
+			[
+				"bloc",
+				"blockLabels"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"volunteer",
+				"volunteerDOB"
+			],
+			[
+				"emergency_con",
+				"emergency_contact_id"
+			],
+			[
+				"emer",
+				"emergencyContactExists"
+			],
+			[
+				"emergencyCon",
+				"emergencyContactExists"
+			],
+			[
+				"makePref",
+				"makePreferredDepartmentRecord"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"join",
+				"joinVolunteerAndEmergencyContact"
+			],
+			[
+				"make",
+				"makeEmergencyContactRecord"
+			],
+			[
+				"real_escape",
+				"mysql_real_escape_string"
+			],
+			[
+				"emergen",
+				"emergency_contact_fname"
+			],
+			[
+				"redirect",
+				"redirectAfter5Seconds"
+			],
+			[
+				"real_esca",
+				"mysql_real_escape_string"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"list-style",
+				"list-style-type"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "php/updateVolunteer.php",
+			"settings":
+			{
+				"buffer_size": 1422,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "$_COOKIE = array[1]\n\t$_COOKIE['XDEBUG_SESSION'] = (string) sublime.xdebug\n$_ENV = array[0]\n$_FILES = array[0]\n$_GET = array[0]\n$_POST = array[2]\n\t$_POST['form1'] = (string) volunteerId=1&volunteerFirstName=Gideon&volunteerLastName=Richter&volunteerEmail=gideonrich%40hotmail.ca&volunteerDOB=1996-02-13&volunteerGender=male&volunteerAddress=33%20Chilcotin%20Rd%20W&volunteerCity=Lethbridge&province=AB&postalCode=T1K7G9&volunteerPrimaryPhone=4034839810&volunteerSecondaryPhone=None&mondayAM=no&mondayPM=no&mondayAM=yes&tuesdayAM=no&tuesdayPM=no&tuesdayAM=yes&wednesdayAM=no&wednesdayPM=no&thursdayAM=no&thursdayPM=no&thursdayPM=yes&fridayAM=no&fridayPM=no&fridayPM=yes&emergencyFirstName=Darlene&emergencyLastName=Richter&emergencyRelationship=Mother&emergencyPhone=4034789810&prefFront=no&prefVIO=no&prefKitchen=no&prefWarehouse=no&prefWarehouse=yes\n\t$_POST['form2'] = (string) volunteerId=1&volunteerFirstName=Gideon&volunteerLastName=Richter&volunteerEmail=gideonrich%40hotmail.ca&volunteerDOB=1996-02-13&volunteerGender=male&volunteerAddress=33%20Chilcotin%20Rd%20W&volunteerCity=Lethbridge&province=PE&postalCode=T1K7G9&volunteerPrimaryPhone=4034839810&volunteerSecondaryPhone=None&mondayAM=no&mondayPM=no&mondayAM=yes&tuesdayAM=no&tuesdayPM=no&tuesdayAM=yes&wednesdayAM=no&wednesdayPM=no&thursdayAM=no&thursdayPM=no&thursdayPM=yes&fridayAM=no&fridayPM=no&fridayPM=yes&emergencyFirstName=Darlene&emergencyLastName=Richter&emergencyRelationship=Mother&emergencyPhone=4034789810&prefFront=no&prefVIO=no&prefKitchen=no&prefWarehouse=no&prefWarehouse=yes\n$_REQUEST = array[2]\n\t$_REQUEST['form1'] = (string) volunteerId=1&volunteerFirstName=Gideon&volunteerLastName=Richter&volunteerEmail=gideonrich%40hotmail.ca&volunteerDOB=1996-02-13&volunteerGender=male&volunteerAddress=33%20Chilcotin%20Rd%20W&volunteerCity=Lethbridge&province=AB&postalCode=T1K7G9&volunteerPrimaryPhone=4034839810&volunteerSecondaryPhone=None&mondayAM=no&mondayPM=no&mondayAM=yes&tuesdayAM=no&tuesdayPM=no&tuesdayAM=yes&wednesdayAM=no&wednesdayPM=no&thursdayAM=no&thursdayPM=no&thursdayPM=yes&fridayAM=no&fridayPM=no&fridayPM=yes&emergencyFirstName=Darlene&emergencyLastName=Richter&emergencyRelationship=Mother&emergencyPhone=4034789810&prefFront=no&prefVIO=no&prefKitchen=no&prefWarehouse=no&prefWarehouse=yes\n\t$_REQUEST['form2'] = (string) volunteerId=1&volunteerFirstName=Gideon&volunteerLastName=Richter&volunteerEmail=gideonrich%40hotmail.ca&volunteerDOB=1996-02-13&volunteerGender=male&volunteerAddress=33%20Chilcotin%20Rd%20W&volunteerCity=Lethbridge&province=PE&postalCode=T1K7G9&volunteerPrimaryPhone=4034839810&volunteerSecondaryPhone=None&mondayAM=no&mondayPM=no&mondayAM=yes&tuesdayAM=no&tuesdayPM=no&tuesdayAM=yes&wednesdayAM=no&wednesdayPM=no&thursdayAM=no&thursdayPM=no&thursdayPM=yes&fridayAM=no&fridayPM=no&fridayPM=yes&emergencyFirstName=Darlene&emergencyLastName=Richter&emergencyRelationship=Mother&emergencyPhone=4034789810&prefFront=no&prefVIO=no&prefKitchen=no&prefWarehouse=no&prefWarehouse=yes\n$_SERVER = array[40]\n\t$_SERVER['HTTP_HOST'] = (string) localhost:8080\n\t$_SERVER['HTTP_CONNECTION'] = (string) keep-alive\n\t$_SERVER['CONTENT_LENGTH'] = (string) 1657\n\t$_SERVER['HTTP_ACCEPT'] = (string) */*\n\t$_SERVER['HTTP_ORIGIN'] = (string) http://localhost:8080\n\t$_SERVER['HTTP_X_REQUESTED_WITH'] = (string) XMLHttpRequest\n\t$_SERVER['HTTP_USER_AGENT'] = (string) Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\n\t$_SERVER['CONTENT_TYPE'] = (string) application/x-www-form-urlencoded; charset=UTF-8\n\t$_SERVER['HTTP_DNT'] = (string) 1\n\t$_SERVER['HTTP_REFERER'] = (string) http://localhost:8080/index2.php\n\t$_SERVER['HTTP_ACCEPT_ENCODING'] = (string) gzip, deflate, br\n\t$_SERVER['HTTP_ACCEPT_LANGUAGE'] = (string) en-GB,en-US;q=0.8,en;q=0.6\n\t$_SERVER['HTTP_COOKIE'] = (string) XDEBUG_SESSION=sublime.xdebug\n\t$_SERVER['PATH'] = (string) C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Crucial\\Crucial Storage Executive;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files\\Calibre2\\;C:\\Program Files\\nodejs\\;C:\\Windows\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps\n\t$_SERVER['SystemRoot'] = (string) C:\\Windows\n\t$_SERVER['COMSPEC'] = (string) C:\\Windows\\system32\\cmd.exe\n\t$_SERVER['PATHEXT'] = (string) .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC\n\t$_SERVER['WINDIR'] = (string) C:\\Windows\n\t$_SERVER['SERVER_SIGNATURE'] = (string) <address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 8080</address> \n\t$_SERVER['SERVER_SOFTWARE'] = (string) Apache/2.4.23 (Win64) PHP/5.6.25\n\t$_SERVER['SERVER_NAME'] = (string) localhost\n\t$_SERVER['SERVER_ADDR'] = (string) ::1\n\t$_SERVER['SERVER_PORT'] = (string) 8080\n\t$_SERVER['REMOTE_ADDR'] = (string) ::1\n\t$_SERVER['DOCUMENT_ROOT'] = (string) C:/wamp64/www\n\t$_SERVER['REQUEST_SCHEME'] = (string) http\n\t$_SERVER['CONTEXT_PREFIX'] = <string>\n\t$_SERVER['CONTEXT_DOCUMENT_ROOT'] = (string) C:/wamp64/www\n\t$_SERVER['SERVER_ADMIN'] = (string) wampserver@wampserver.invalid\n\t$_SERVER['SCRIPT_FILENAME'] = (string) C:/wamp64/www/php/updateVolunteer.php\n\t$_SERVER['REMOTE_PORT'] = (string) 52319\n\t$_SERVER['GATEWAY_INTERFACE'] = (string) CGI/1.1\n\t...\n$changedFields = array[1]\n\t$changedFields[0] = (string) province\n$json = array[5]\n\t$json['Volunteer'] = array[13]\n\t\t...\n\t$json['EmergencyContact'] = array[2]\n\t\t...\n\t$json['jnct_volunteer_emergency_contact'] = array[5]\n\t\t...\n\t$json['pref_avail'] = array[5]\n\t\t...\n\t$json['pref_dept'] = array[4]\n\t\t...\n$string = (string) { \t\"Volunteer\" : { \t\t\"volunteer_id\" : \"volunteerId\",  \t\t\"volunteer_fname\" : \"volunteerFirstName\",  \t\t\"volunteer_lname\" : \"volunteerLastName\",  \t\t\"volunteer_email\" : \"volunteerEmail\",  \t\t\"volunteer_birthdate\" : \"volunteerDOB\",  \t\t\"volunteer_gender\" : \"volunteerGender\",  \t\t\"volunteer_street\" : \"volunteerAddress\",  \t\t\"volunteer_city\" : \"volunteerCity\",  \t\t\"volunteer_province\" : \"province\",  \t\t\"volunteer_postcode\" : \"postalCode\",  \t\t\"volunteer_primaryphone\" : \"volunteerPrimaryPhone\",  \t\t\"volunteer_secondaryphone\" : \"volunteerSecondaryPhone\",  \t\t\"volunteer_status\" : \"\" \t},  \t\"EmergencyContact\" : { \t\t\"emergency_contact_id\" : \"emergencyFirstName\", \t\t\"emergency_contact_fname\" : \"emergencyLastName\" \t},  \t\"jnct_volunteer_emergency_contact\" : { \t\t\"volunteer_emergency_contact_id\" : \"\",  \t\t\"volunteer_fk\" : \"\",  \t\t\"emergency_contact_fk\" : \"\",  \t\t\"relationship\" : \"\",  \t\t\"phone\" : \"\" \t}, \t\"pref_avail\" : { \t\t\"pref_avail_id\" : \"\",  \t\t\"volunteer_fk\" : \"\",  \t\t\"weekday\" : \"\",  \t\t\"am\" : \"\",  \t\t\"pm\" \n",
+			"settings":
+			{
+				"buffer_size": 6678,
+				"line_ending": "Windows",
+				"name": "Xdebug Context",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+			"settings":
+			{
+				"buffer_size": 72955,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Watch",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "[0] file:///C:/wamp64/www/php/updateVolunteer.php.fieldNameToColumn:57\n[1] file:///C:/wamp64/www/php/updateVolunteer.php.updateVolunteer:9\n[2] file:///C:/wamp64/www/php/updateVolunteer.php.{main}:4\n",
+			"settings":
+			{
+				"buffer_size": 198,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "=> C:\\wamp64\\www\\php\\test.php\n\t|+| 3\n\t|+| 4\n=> C:\\wamp64\\www\\php\\updateVolunteer.php\n\t|+| 56\n\t|+| 57\n",
+			"settings":
+			{
+				"buffer_size": 101,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "start",
+		"selected_items":
+		[
+			[
+				"start",
+				"Xdebug: Restart Session"
+			],
+			[
+				"stop",
+				"Xdebug: Stop Debugging"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Build With: C++ Single File"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp64/www",
+		"/C/wamp64/www/php"
+	],
+	"file_history":
+	[
+		"/C/wamp64/www/php/test.php",
+		"/C/wamp64/www/javascript/loadVolunteer.js",
+		"/C/wamp64/www/javascript/databaseColumnNames.json",
+		"/C/wamp64/www/foodbank.sublime-project",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/wamp64/www/index2.php",
+		"/C/wamp64/www/php/updateVolunteer.php",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/wamp64/www/javascript/updateVolunteer.js",
+		"/C/wamp64/www/css/stylesheet.css",
+		"/C/Users/Gideon/Desktop/index.js",
+		"/C/wamp64/www/php/test.js",
+		"/C/wamp64/www/php/testphp.php",
+		"/C/wamp64/www/php/loadUpdateFields.php",
+		"/C/wamp64/www/index.php",
+		"/C/wamp64/www/php/databasePHPFunctions.php",
+		"/C/wamp64/www/php/createNewVolunteer.php",
+		"/C/wamp64/www/php/test.html",
+		"/C/wamp64/www/php/testjs.js",
+		"/C/Users/Gideon/Desktop/temp/loadFieldsFromDatabase.php",
+		"/C/wamp64/www/myPHPFiles/createNewVolunteer.php",
+		"/C/wamp64/www/myPHPFiles/test.php",
+		"/C/wamp64/www/myPHPFiles/databasePHPFunctions.php",
+		"/C/wamp64/www/myPHPFiles/updateVolunteer.php",
+		"/C/wamp64/www/updateVolunteer.php",
+		"/C/wamp64/www/updateVolunteer.js",
+		"/C/wamp64/www/myPHPFiles/databaseClass.php",
+		"/C/wamp64/www/myPHPFiles/volunteerClass.php",
+		"/C/wamp64/www/myPHPFiles/postClass.php",
+		"/C/wamp64/www/test.php",
+		"/C/wamp64/www/README.md",
+		"/C/wamp64/www/createNewVolunteer.php",
+		"/C/wamp64/www/databasePHPFunctions.php",
+		"/C/wamp64/www/selectFromJunction.txt",
+		"/C/wamp64/www/stylesheet.css",
+		"/C/Users/Gideon/Desktop/foodbank 26 Feb before Preferred.sql",
+		"/C/wamp64/www/braydn.html",
+		"/C/Users/Gideon/Desktop/volunteer.sql",
+		"/C/wamp64/www/testJQuery.js",
+		"/C/wamp64/www/updateVolunteerInformation.php",
+		"/C/wamp64/www/updateVolunteerInformation.html",
+		"/C/wamp64/www/newVolunteerFunctions.php",
+		"/C/wamp64/www/newVolunteerConfirmation.php",
+		"/C/Users/Gideon/Documents/food_bank_project/addVolunteer.php",
+		"/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+		"/C/Users/Gideon/Documents/food_bank_project/index.html",
+		"/C/Users/Gideon/Desktop/index.html",
+		"/C/Users/Gideon/Desktop/stylesheet.css",
+		"/C/Users/Gideon/Google Drive/College/Operating Systems Theory/Chapter 6 Notes",
+		"/C/wamp64/bin/apache/apache2.4.23/conf/httpd.conf",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/dontEnterTheNumber.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/colaMachine.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/gradingProgram.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/multiplicationTable.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/structures1.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/structures.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/php/test.php",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/test.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/test1.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"var",
+			"event.preventDefault();",
+			"select",
+			"$self",
+			"dropdown",
+			"postition",
+			"select",
+			"9",
+			"postco",
+			"?",
+			"();\n",
+			"foreach($row as $value) {\n\t\t\techo $value;\n\t\t}",
+			"\"]);\n",
+			"echo",
+			"volunteerGender",
+			"mysqli",
+			"form",
+			"form ",
+			"form",
+			"select",
+			"volunteerInformationLeft",
+			"500px",
+			"<input type=\"submit\" name=\"clearVolunteer\" value=\"Clear\">",
+			"<input type=\"submit\" name=\"submitVolunteer\">",
+			"frontRadio",
+			"frontCheck",
+			">\n",
+			"mondayCheck",
+			"\">\n",
+			"index.php",
+			"car1",
+			"string",
+			"car1",
+			"string",
+			";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"this\nthis\nthis",
+			"frontCheck",
+			"frontRadio",
+			"tuesdayCheck"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "php/updateVolunteer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1422,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1422,
+								1422
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 487.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5628,
+								5628
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 114.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 72955,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								72921,
+								72921
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 48590.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								198,
+								198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 101,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								101,
+								101
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.705417607223,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.7,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 229.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "foodbank.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"111":
+				{
+					"group": 0,
+					"index": 0
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 72.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

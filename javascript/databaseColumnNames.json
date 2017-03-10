@@ -1,0 +1,26 @@
+{
+	"Volunteer" : {
+		"volunteerId" : "volunteer_id", 
+		"volunteerFirstName" : "volunteer_fname", 
+		"volunteerLastName" : "volunteer_lname", 
+		"volunteerEmail" : "volunteer_email", 
+		"volunteerDOB" : "volunteer_birthdate", 
+		"volunteerGender" : "volunteer_gender", 
+		"volunteerAddress" : "volunteer_street", 
+		"volunteerCity" : "volunteer_city", 
+		"province" : "volunteer_province", 
+		"postalCode" : "volunteer_postcode", 
+		"volunteerPrimaryPhone" : "volunteer_primaryphone", 
+		"volunteerSecondaryPhone" : "volunteer_secondaryphone", 
+		"volunteerStatus" : "volunteer_status"
+	}, 
+	"EmergencyContact" : {
+		"emergencyId" : "emergency_contact_id",
+		"emergencyFirstName" : "emergency_contact_fname",
+		"emergencyLastName" : "emergency_contact_lname"
+	}, 
+	"jnct_volunteer_emergency_contact" : {
+		"emergencyRelationship" : "relationship", 
+		"emergencyPhone" : "phone"
+	}
+}

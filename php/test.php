@@ -1,5 +1,7 @@
 <?php
-	var_dump($_GET);
+	$test = phpinfo();
+	var_dump($test);
+	$test = "hello";
 ?>
 
 <!DOCTYPE html>
