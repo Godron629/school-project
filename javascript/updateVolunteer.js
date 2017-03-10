@@ -8,13 +8,13 @@ $(document).ready(function() {
 
 		if(volunteerId != '') {
 			if(changedForm != origForm) {
-				if(confirm("Are you sure you want to save you changes?")) {
+				if(confirm("Are you sure you want to save your changes?")) {
 					$.ajax({
 						url: "../php/updateVolunteer.php",
 						type: "POST", 
 						data: { form1 : origForm, form2 : changedForm},
 						success: function(data) {
-							console.log(data);
+							origForm = serializeForm();
 						}
 					});
 				} 

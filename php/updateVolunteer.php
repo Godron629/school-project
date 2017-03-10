@@ -7,7 +7,6 @@
 function updateVolunteer() {
 	$changedFields = changedFields();
 	$changedColumns = fieldNameToDatabaseColumn($changedFields);
-	updateColumns($changedFields, $changedColumns);
 }
 
 function changedFields() {
@@ -44,6 +43,14 @@ function valueOfChangedFields($origForm, $changeForm) {
 		$i++;
 	}
 
+	$keys = array_keys($changedFields);
+	$result = preg_grep("/\w*(AM|PM)\b/", $keys); 	
+	$volunteerId = $changeForm["volunteerId"];
+
+	if($result) {
+		changeAvailibilityRows($result, $volunteerId);
+	}
+
 	return $changedFields;
 }
 
@@ -54,6 +61,28 @@ function compareForms($origForm, $changeForm) {
 		}, $origForm, $changeForm);
 
 	return $didFieldChange;
+}
+
+function changeAvailibilityRows($result, $volunteerId) {
+	$daysChanged = array();
+
+	foreach ($result as $key => $value) {
+		//Split up mondayAM into 'monday' and 'am'
+		$day = preg_replace("/[^a-z]/", "", $value);
+		$time = preg_replace("/[^A-Z]/", "", $value);
+		$time = strtolower($time);
+
+		$sql = "SELECT {$time} FROM pref_avail WHERE volunteer_fk={$volunteerId} AND weekday='{$day}'";
+		$row = db_select($sql);
+		$oldCheckboxValue = $row[0][$time];
+
+		if($oldCheckboxValue === "no") {
+			$test = db_query("UPDATE pref_avail SET {$time}='yes' WHERE weekday='{$day}' AND volunteer_fk={$volunteerId}");
+		} else {
+			$test1 = db_query("UPDATE pref_avail SET {$time}='no' WHERE weekday='{$day}' AND volunteer_fk={$volunteerId}");
+		}
+	}
+
 }
 
 function fieldNameToDatabaseColumn ($changedFields) {
@@ -86,10 +115,6 @@ function fieldNameToDatabaseColumn ($changedFields) {
 	}
 
 	return $changedColumns;
-}
-
-function updateColumns($changedFields, $changedColumns) {
-
 }
 		
 ?>
