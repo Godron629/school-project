@@ -59,7 +59,7 @@ function fieldNameToDatabaseColumn ($changedFields) {
 	//Json file maps form input names to database columns. 
 	$jsonFile = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/javascript/databaseColumnNames.json');
 
-		/* Json file format
+	/* Json file format
 	* {
 	*	"Volunteer" : {
 	*		"volunteerFirstName" : "volunteer_id",
