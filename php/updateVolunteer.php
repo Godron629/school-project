@@ -56,18 +56,29 @@ function compareForms($origForm, $changeForm) {
 }
 
 function fieldNameToDatabaseColumn ($changedFields) {
-	//json file maps form input names to database columns
+	//Json file maps form input names to database columns. 
 	$jsonFile = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/javascript/databaseColumnNames.json');
-	$fieldMapToColumn = json_decode($jsonFile, true);
+
+		/* Json file format
+	* {
+	*	"Volunteer" : {
+	*		"volunteerFirstName" : "volunteer_id",
+	* 		...	
+	* 	}, 
+	* 	"EmergencyContact" : {...}
+	* }
+	*/
+
+	//Decoded json into associative array
+	$fieldToColumnMap = json_decode($jsonFile, true);
 
 	$changedColumns = array();
 
-	//Only does volunteer and emergency
-	foreach ($fieldMapToColumn as $key => $value) {
+	foreach ($fieldToColumnMap as $table => $value) {
 		if(is_array($value)) {
-			foreach ($value as $key2 => $value2) {
-				if(in_array($key2, $changedFields)) {
-					$changedColumns[] = $value2;
+			foreach ($value as $fieldName => $columnName) {
+				if(in_array($fieldName, $changedFields)) {
+					$changedColumns[] = $columnName;
 				}	
 			}
 		}
