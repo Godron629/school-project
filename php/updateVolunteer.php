@@ -11,7 +11,7 @@ function changedFields() {
 
 	$changedFields = valueOfChangedFields($origForm, $changeForm);
 
-	$changedColumns = fieldNameToDatabaseColumn($changedFields, $changeForm);
+	fieldNameToDatabaseColumn($changedFields, $changeForm);
 
 	return $changedFields;
 }
@@ -124,38 +124,30 @@ function fieldNameToDatabaseColumn ($changedFields, $changeForm) {
 	//Json file maps form input names to database columns. 
 	$jsonFile = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/javascript/databaseColumnNames.json');
 
-	/* Json file format
-	* {
-	*	"Volunteer" : {
-	*		"volunteerFirstName" : "volunteer_fname",
-	* 		...	
-	* 	}, 
-	* 	"EmergencyContact" : {...}
-	* }
-	*/
-
-	//Decoded json into associative array
 	$fieldToColumnMap = json_decode($jsonFile, true);
 
 	$changedColumns = array();
-
+	//TODO Sanitize form values and phone numbers 
 	foreach ($fieldToColumnMap as $table => $value) {
-		if(is_array($value)) {
-			foreach ($value as $fieldName => $columnName) {
-				if(array_key_exists($fieldName, $changedFields)) {
-					/*$changedColumns[] = $columnName;*/
-					$fieldValue = $changeForm[$fieldName];
-					$volunteerId = $changeForm["volunteerId"];
-					$sql = "UPDATE volunteer SET {$columnName}='{$fieldValue}' WHERE volunteer_id={$volunteerId} ";
-					$test = db_query($sql);
-				}	
+		foreach ($value as $fieldName => $columnName) {
+			if(array_key_exists($fieldName, $changedFields)) {
+
+				$volunteerId = $changeForm["volunteerId"];
+				$newValue = $changeForm[$fieldName];
+
+				updateTable($volunteerId, $table, $columnName, $newValue);
 			}
 		}
 	}
 
-
-
 	return $changedColumns;
+}
+
+function updateTable($volunteerId, $table, $column, $newValue) {
+	$pkOrFK = $table == "volunteer" ? "volunteer_id" : "volunteer_fk";
+
+	$sql = "UPDATE {$table} SET {$column}='{$newValue}' WHERE {$pkOrFK}={$volunteerId}";
+	return db_query($sql);
 }
 	
 ?>

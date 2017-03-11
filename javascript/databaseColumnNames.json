@@ -1,5 +1,5 @@
 {
-	"Volunteer" : {
+	"volunteer" : {
 		"volunteerId" : "volunteer_id", 
 		"volunteerFirstName" : "volunteer_fname", 
 		"volunteerLastName" : "volunteer_lname", 
@@ -14,7 +14,7 @@
 		"volunteerSecondaryPhone" : "volunteer_secondaryphone", 
 		"volunteerStatus" : "volunteer_status"
 	}, 
-	"EmergencyContact" : {
+	"emergency_contact" : {
 		"emergencyId" : "emergency_contact_id",
 		"emergencyFirstName" : "emergency_contact_fname",
 		"emergencyLastName" : "emergency_contact_lname"
