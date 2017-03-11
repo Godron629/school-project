@@ -11,7 +11,7 @@ function changedFields() {
 
 	$changedFields = valueOfChangedFields($origForm, $changeForm);
 
-	fieldNameToDatabaseColumn($changedFields, $changeForm);
+	changeVolunteerRows($changedFields, $changeForm);
 
 	return $changedFields;
 }
@@ -120,7 +120,7 @@ function changeDepartmentRows($changedFields, $changeForm) {
 	}
 }
 
-function fieldNameToDatabaseColumn ($changedFields, $changeForm) {
+function changeVolunteerRows ($changedFields, $changeForm) {
 	//Json file maps form input names to database columns. 
 	$jsonFile = file_get_contents($_SERVER["DOCUMENT_ROOT"] . '/javascript/databaseColumnNames.json');
 
@@ -139,8 +139,7 @@ function fieldNameToDatabaseColumn ($changedFields, $changeForm) {
 			}
 		}
 	}
-
-	return $changedColumns;
+	return;
 }
 
 function updateTable($volunteerId, $table, $column, $newValue) {
