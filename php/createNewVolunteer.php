@@ -42,13 +42,23 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 	function makeVolunteerRecord() {
 		$connection = db_connect();
 
+		//real_escape_string form inputs and remove symbols from apropriate fields
+		$firstName = removeSymbolsFromText($_POST['volunteerFirstName']);
 		$firstName = db_quote($_POST['volunteerFirstName']);
+
+		$lastName = removeSymbolsFromText($_POST['volunteerLastName']);
 		$lastName = db_quote($_POST['volunteerLastName']);
+
 		$email = db_quote($_POST['volunteerEmail']);
 		$birthdate = db_quote($_POST['volunteerDOB']);
 		$gender = db_quote($_POST['volunteerGender']);
+
+		$address = removeSymbolsFromText($_POST['volunteerAddress']);
 		$address = db_quote($_POST['volunteerAddress']);
+
+		$city = removeSymbolsFromText($_POST['volunteerCity'])
 		$city = db_quote($_POST['volunteerCity']);
+
 		$province = db_quote($_POST['province']);
 		$postalCode = db_quote($_POST['postalCode']);
 
@@ -69,6 +79,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 	function removeSymbolsFromPhone($phone) {
        $phone = preg_replace("([^0-s]+)", "", $phone);
        return $phone;
+    }
+
+    function removeSymbolsFromText($text) {
+    	$text = preg_replace("/[^a-zA-Z0-9]/", "", $text);
+    	return $text;
     }
 
    	function getSecondaryPhoneFromForm() {

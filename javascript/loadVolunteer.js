@@ -94,8 +94,10 @@ function loadPreferredDepartmentsIntoFields(data) {
 }
 
 function loadPreferredAvailIntoFields(data) {
+	//Unselect 
 	$("#preferredTimes input").prop('checked', false);
 
+	//Go through the data and set the values of checkboxes 
 	for (var i = 0; i < data["Avail"].length; i++) {
 		var weekday = data["Avail"][i]["weekday"];
 		var am = data["Avail"][i]["am"];
