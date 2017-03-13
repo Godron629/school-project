@@ -75,7 +75,6 @@ function loadPreferredDepartmentsIntoFields(data) {
 		if(allow === "yes") {
 			switch(department) {
 				case "front": 
-					console.log("Hello!");
 					$("#frontCheck").prop('checked', true);
 					break;
 				case "vio":
@@ -95,7 +94,7 @@ function loadPreferredDepartmentsIntoFields(data) {
 }
 
 function loadPreferredAvailIntoFields(data) {
-	$("#preferredTimes input:not([hidden])").prop('checked', false);
+	$("#preferredTimes input").prop('checked', false);
 
 	for (var i = 0; i < data["Avail"].length; i++) {
 		var weekday = data["Avail"][i]["weekday"];
