@@ -38,7 +38,6 @@ function loadVolunteerIntoFields(data) {
 	$("#volunteerEmail").val(data['Volunteer'].volunteer_email);
 	$("#volunteerDOB").val(data['Volunteer'].volunteer_birthdate);
 
-	//remove selected attribute or else multiple options will be selected after changing the volunteer a few times
 	$("#volunteerGender option").removeAttr('selected');
 	$("#volunteerGender option[value=" + data['Volunteer'].volunteer_gender + "]").attr('selected', 'selected');
 
@@ -64,14 +63,14 @@ function loadEmergencyContactIntoFields(data) {
 }
 
 function loadPreferredDepartmentsIntoFields(data) {
-	//Uncheck everything except for hidden fields which make the default unchecked value false
+	//Deselect departments that have been checked from previous volunteer loads
 	$("#preferredDepartments input").prop("checked", false);
 
+	//Go through the department checkboxes and get the values
 	for (var i = 0; i < data["Dep"].length; i++) {
+
 		var department = data["Dep"][i]["department"];
 		var allow = data["Dep"][i]["allow"];
-
-		$("#preferredDepartments input[type='checkbox']").attr
 
 		if(allow === "yes") {
 			switch(department) {
