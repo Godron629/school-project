@@ -243,7 +243,7 @@
 				</ul>
 			</div>
 		</div>
-		
+
 		<div class="container bigButtons" id="submitButtons">
 			<button type="button" class="deleteButton">Delete Volunteer</button>
 			<a href="index2.php"><button type="button">Cancel</button></a>
@@ -253,7 +253,12 @@
 	</div>
 
 	<!-- Shown on Ajax to edit volunteer success -->
-	<div id="dialog" style="display:none">Volunteer information was sucessfully changed.</div>
+	<div id="successDialog" style="display:none">
+
+	<p>Volunteer information was sucessfully changed!</p>
+	<p><small>*Name change requires refresh</small></p>
+
+	</div>
 
 </body>
 </html>

@@ -35,7 +35,7 @@ function valueOfChangedFields($origForm, $changeForm) {
 	$i = 0;
 	foreach ($changeForm as $key => $value) {
 		if($didFieldChange[$i]) {
-			$changedFields[$key] = $value;
+			$changedFields[$key] = db_quote($value);
 		}
 		$i++;
 	}

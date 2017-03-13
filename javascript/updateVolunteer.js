@@ -2,16 +2,18 @@ var volunteerId = '';
 
 $(document).ready(function() {
 
-    $("#dialog").dialog({
+    $("#successDialog").dialog({
         autoOpen: false,
         draggable: false,
         title: "Success",
-        buttons: [{
-                	text: "Ok",
-                	click: function() {
-                		$(this).dialog("close");
-                	}
-                }]
+        buttons: {
+        	'Ok' : function() {
+        		$(this).dialog("close");
+        	},
+        	'Refresh' : function() {
+        		location.reload();
+        	}
+        }
     });	
 
 	$("#updateButton").on('click', function() {
@@ -27,7 +29,7 @@ $(document).ready(function() {
 						data: { form1 : origForm, form2 : changedForm},
 						success: function(data) {
 							origForm = serializeForm();
-							$("#dialog").dialog("open");
+							$("#successDialog").dialog("open");
 						}
 					});
 				} 
