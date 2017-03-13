@@ -3,7 +3,6 @@ var origForm;
 $(document).ready(function() {
 	$('.selectVolunteer').select2();
 
-	/*	$("#loadButton").click(function() {*/
 		$(".selectVolunteer").on('change', function() {
 
 			var selection = {
