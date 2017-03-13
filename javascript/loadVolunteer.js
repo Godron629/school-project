@@ -1,10 +1,12 @@
 var origForm;
 //Make the .selectVolunteer select searchable
 $(document).ready(function() {
+	//Make Select Volunteer Select into a Select2
 	$('.selectVolunteer').select2();
 
 		$(".selectVolunteer").on('change', function() {
 
+			//Value of .selectVolunteer is their volunteerId
 			var selection = {
 				id: $('.selectVolunteer').val()
 			}
@@ -21,7 +23,7 @@ $(document).ready(function() {
 					loadPreferredDepartmentsIntoFields(data);
 					loadPreferredAvailIntoFields(data);
 
-					//Serialized form origForm is Global variable used in updateVolunteer.js
+					//Save form state after load to compare against for changes
 					var $form = $('form');
 					origForm = $form.serialize();
 				}
@@ -62,7 +64,8 @@ function loadEmergencyContactIntoFields(data) {
 }
 
 function loadPreferredDepartmentsIntoFields(data) {
-	$("#preferredDepartments input:not([hidden])").prop("checked", false);
+	//Uncheck everything except for hidden fields which make the default unchecked value false
+	$("#preferredDepartments input").prop("checked", false);
 
 	for (var i = 0; i < data["Dep"].length; i++) {
 		var department = data["Dep"][i]["department"];
