@@ -20,7 +20,8 @@ $(document).ready(function() {
 					loadEmergencyContactIntoFields(data);
 					loadPreferredDepartmentsIntoFields(data);
 					loadPreferredAvailIntoFields(data);
-					//Serialize form for if form changed comparison in updateVolunteer.js
+
+					//Serialized form origForm is Global variable used in updateVolunteer.js
 					var $form = $('form');
 					origForm = $form.serialize();
 				}
