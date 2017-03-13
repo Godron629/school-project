@@ -142,11 +142,6 @@ function changeVolunteerRows ($changedFields, $changeForm) {
 	return;
 }
 
-function removeSymbolsFromText($text) {
-	$newText = preg_replace("/[!@#$%^&*()_+]/", "", $text);
-	return $newText;
-}
-
 function updateTable($volunteerId, $table, $column, $newValue) {
 	$pkOrFK = $table == "volunteer" ? "volunteer_id" : "volunteer_fk";
 

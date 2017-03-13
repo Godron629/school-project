@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"remove",
+				"removeSymbolsFromText"
+			],
+			[
 				"array_key",
 				"array_key_exists"
 			],
@@ -78,10 +82,6 @@
 			[
 				"loadPre",
 				"loadPreferredAvailIntoFields"
-			],
-			[
-				"remove",
-				"removeAttr"
 			],
 			[
 				"load",
@@ -176,28 +176,47 @@
 	"buffers":
 	[
 		{
-			"file": "php/updateVolunteer.php",
+			"contents": "",
 			"settings":
 			{
-				"buffer_size": 4577,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Context",
+				"read_only": true,
+				"scratch": true
 			}
 		},
 		{
-			"file": "php/databasePHPFunctions.php",
+			"contents": "",
 			"settings":
 			{
-				"buffer_size": 1162,
-				"line_ending": "Windows"
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Watch",
+				"read_only": true,
+				"scratch": true
 			}
 		},
 		{
-			"file": "javascript/updateVolunteer.js",
+			"contents": "",
 			"settings":
 			{
-				"buffer_size": 800,
-				"line_ending": "Windows"
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
 			}
 		}
 	],
@@ -225,19 +244,23 @@
 	"command_palette":
 	{
 		"height": 392.0,
-		"last_filter": "stop",
+		"last_filter": "rest",
 		"selected_items":
 		[
+			[
+				"rest",
+				"Xdebug: Restart Session"
+			],
+			[
+				"start",
+				"Xdebug: Start Debugging (Launch Browser)"
+			],
 			[
 				"stop",
 				"Xdebug: Stop Debugging (Close Windows)"
 			],
 			[
 				"res",
-				"Xdebug: Restart Session"
-			],
-			[
-				"start",
 				"Xdebug: Restart Session"
 			],
 			[
@@ -257,7 +280,7 @@
 				"Build With: C++ Single File"
 			]
 		],
-		"width": 512.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -283,19 +306,20 @@
 	],
 	"file_history":
 	[
-		"/C/wamp64/logs/php_error.log",
+		"/C/wamp64/www/index2.php",
+		"/C/wamp64/www/php/createNewVolunteer.php",
+		"/C/wamp64/www/php/updateVolunteer.php",
+		"/C/wamp64/www/javascript/loadVolunteer.js",
+		"/C/wamp64/www/javascript/updateVolunteer.js",
 		"/C/wamp64/www/php/databasePHPFunctions.php",
+		"/C/wamp64/logs/php_error.log",
 		"/C/wamp64/logs/apache_error.log",
 		"/C/wamp64/logs/mysql.log",
-		"/C/wamp64/www/javascript/updateVolunteer.js",
 		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
 		"/C/wamp64/www/php/test.php",
 		"/C/wamp64/www/foodbank.sublime-project",
 		"/C/wamp64/www/javascript/databaseColumnNames.json",
-		"/C/wamp64/www/javascript/loadVolunteer.js",
 		"/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
-		"/C/wamp64/www/index2.php",
-		"/C/wamp64/www/php/updateVolunteer.php",
 		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
 		"/C/wamp64/www/css/stylesheet.css",
 		"/C/Users/Gideon/Desktop/index.js",
@@ -303,7 +327,6 @@
 		"/C/wamp64/www/php/testphp.php",
 		"/C/wamp64/www/php/loadUpdateFields.php",
 		"/C/wamp64/www/index.php",
-		"/C/wamp64/www/php/createNewVolunteer.php",
 		"/C/wamp64/www/php/test.html",
 		"/C/wamp64/www/php/testjs.js",
 		"/C/Users/Gideon/Desktop/temp/loadFieldsFromDatabase.php",
@@ -363,6 +386,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"($",
 			"hidden",
 			"active",
 			"var",
@@ -421,45 +445,20 @@
 	"groups":
 	[
 		{
+			"sheets":
+			[
+			]
+		},
+		{
 			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "php/updateVolunteer.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4577,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								170,
-								170
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 104.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "php/databasePHPFunctions.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1162,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -472,43 +471,104 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 313.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "javascript/updateVolunteer.js",
-					"semi_transient": true,
+					"buffer": 1,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 800,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								775,
-								775
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -529,18 +589,32 @@
 			[
 				0,
 				0,
-				1,
+				2,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
+			0.7,
 			1.0
 		]
 	},
@@ -599,12 +673,22 @@
 			"hide_conflict": false,
 			"restore_index":
 			{
-				"15":
+				"17":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"19":
 				{
 					"group": 0,
 					"index": 0
 				},
-				"16":
+				"28":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"44":
 				{
 					"group": 0,
 					"index": 1
@@ -638,7 +722,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 192.0,
+	"side_bar_width": 231.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
