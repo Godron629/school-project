@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"array_key",
+				"array_key_exists"
+			],
+			[
+				"change",
+				"changeForm"
+			],
+			[
+				"fieldName",
+				"fieldNameToDatabaseColumn"
+			],
+			[
 				"seri",
 				"serializeForm"
 			],
@@ -167,8 +179,24 @@
 			"file": "php/updateVolunteer.php",
 			"settings":
 			{
-				"buffer_size": 4659,
+				"buffer_size": 4577,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "php/databasePHPFunctions.php",
+			"settings":
+			{
+				"buffer_size": 1162,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "javascript/updateVolunteer.js",
+			"settings":
+			{
+				"buffer_size": 800,
 				"line_ending": "Windows"
 			}
 		}
@@ -196,13 +224,17 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 357.0,
+		"height": 392.0,
 		"last_filter": "stop",
 		"selected_items":
 		[
 			[
 				"stop",
 				"Xdebug: Stop Debugging (Close Windows)"
+			],
+			[
+				"res",
+				"Xdebug: Restart Session"
 			],
 			[
 				"start",
@@ -217,10 +249,6 @@
 				"Xdebug: Restart Session"
 			],
 			[
-				"res",
-				"Xdebug: Restart Session"
-			],
-			[
 				"install pac",
 				"Package Control: Install Package"
 			],
@@ -229,7 +257,7 @@
 				"Build With: C++ Single File"
 			]
 		],
-		"width": 400.0
+		"width": 512.0
 	},
 	"console":
 	{
@@ -256,10 +284,11 @@
 	"file_history":
 	[
 		"/C/wamp64/logs/php_error.log",
-		"/C/wamp64/www/javascript/updateVolunteer.js",
 		"/C/wamp64/www/php/databasePHPFunctions.php",
-		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/wamp64/logs/apache_error.log",
 		"/C/wamp64/logs/mysql.log",
+		"/C/wamp64/www/javascript/updateVolunteer.js",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
 		"/C/wamp64/www/php/test.php",
 		"/C/wamp64/www/foodbank.sublime-project",
 		"/C/wamp64/www/javascript/databaseColumnNames.json",
@@ -401,15 +430,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4659,
+						"buffer_size": 4577,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3857,
-								3857
+								170,
+								170
 							]
 						],
 						"settings":
@@ -418,10 +447,68 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 399.0,
+						"translation.y": 104.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "php/databasePHPFunctions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 313.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "javascript/updateVolunteer.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								775,
+								775
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -512,10 +599,15 @@
 			"hide_conflict": false,
 			"restore_index":
 			{
-				"17":
+				"15":
 				{
 					"group": 0,
 					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 1
 				}
 			},
 			"restore_layout":

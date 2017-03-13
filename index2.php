@@ -2,14 +2,28 @@
 <html>
 <head>
 	<title>Update Volunteer</title>
+	<!-- Default Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 
+	<!-- jQuery  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+	<!-- Dialog Box -->
+	<script
+  	src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  	crossorigin="anonymous"></script>
+
+  	<!-- Dialog Box CSS -->
+  	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+
+  	<!-- Select2 Select -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
+	<!-- Select2 Select CSS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+	<!-- Default Scripts -->
 	<script src="javascript/loadVolunteer.js"></script>
 	<script src="javascript/updateVolunteer.js"></script>
 	</script>
@@ -40,6 +54,7 @@
 	<div class="container main">
 		<div class="selectVolunteerForm">
 			<form action="updateVolunteer.php">
+				<!-- Select2 Select -->
 				<select class="selectVolunteer" size="3">
 					<option value="" disabled selected>Select Volunteer...</option>
 					<?php include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
@@ -115,126 +130,130 @@
 					<label for="volunteerSecondaryPhone">Secondary Phone: <br><small>*Not Required</small></label>
 					<input id="volunteerSecondaryPhone" type="text" placeholder="(123) 456-7890" name="volunteerSecondaryPhone">
 				</div>
+		</div>
+
+		<div class="container rightSide blockCheckboxLabels" id="preferredTimes">
+			<div  class="container" id="preferredTimesColumn2">
+				<h2>Preferred Times</h2>
+				<p>(AM) / (PM)</p>
+				<ul class="checkboxList">
+					<li>
+						<label for="mondayCheckAM">Monday:</label>
+						<input hidden checked type="checkbox" name="mondayAM" value="no">
+						<input hidden checked type="checkbox" name="mondayPM" value="no">
+						<input id="mondayCheckAM" type="checkbox" name="mondayAM" value="yes">
+						<input id="mondayCheckPM" type="checkbox" name="mondayPM" value="yes">
+					</li>
+					<li>
+						<label for="tuesdayCheckAM">Tuesday:</label>
+						<input hidden checked type="checkbox" name="tuesdayAM" value="no">
+						<input hidden checked type="checkbox" name="tuesdayPM" value="no">
+						<input id="tuesdayCheckAM" type="checkbox" name="tuesdayAM" value="yes">
+						<input id="tuesdayCheckPM" type="checkbox" name="tuesdayPM" value="yes">
+					</li>
+					<li>
+						<label for="wednesdayCheckAM">Wednesday:</label>
+						<input hidden checked type="checkbox" name="wednesdayAM" value="no">
+						<input hidden checked type="checkbox" name="wednesdayPM" value="no">
+						<input id="wednesdayCheckAM" type="checkbox" name="wednesdayAM" value="yes">
+						<input id="wednesdayCheckPM" type="checkbox" name="wednesdayPM" value="yes">
+					</li>
+					<li>
+						<label for="thursdayCheckAM">Thursday:</label>
+						<input hidden checked type="checkbox" name="thursdayAM" value="no">
+						<input hidden checked type="checkbox" name="thursdayPM" value="no">
+						<input id="thursdayCheckAM" type="checkbox" name="thursdayAM" value="yes">
+						<input id="thursdayCheckPM" type="checkbox" name="thursdayPM" value="yes">
+					</li>
+					<li>
+						<label for="fridayCheckAM">Friday:</label>
+						<input hidden checked type="checkbox" name="fridayAM" value="no">
+						<input hidden checked type="checkbox" name="fridayPM" value="no">
+						<input id="fridayCheckAM" type="checkbox" name="fridayAM" value="yes">
+						<input id="fridayCheckPM" type="checkbox" name="fridayPM" value="yes">
+					</li>
+				</ul>
 			</div>
+		</div>
 
-			<div class="container rightSide blockCheckboxLabels" id="preferredTimes">
-				<div  class="container" id="preferredTimesColumn2">
-					<h2>Preferred Times</h2>
-					<p>(AM) / (PM)</p>
-					<ul class="checkboxList">
-						<li>
-							<label for="mondayCheckAM">Monday:</label>
-							<input hidden checked type="checkbox" name="mondayAM" value="no">
-							<input hidden checked type="checkbox" name="mondayPM" value="no">
-							<input id="mondayCheckAM" type="checkbox" name="mondayAM" value="yes">
-							<input id="mondayCheckPM" type="checkbox" name="mondayPM" value="yes">
-						</li>
-						<li>
-							<label for="tuesdayCheckAM">Tuesday:</label>
-							<input hidden checked type="checkbox" name="tuesdayAM" value="no">
-							<input hidden checked type="checkbox" name="tuesdayPM" value="no">
-							<input id="tuesdayCheckAM" type="checkbox" name="tuesdayAM" value="yes">
-							<input id="tuesdayCheckPM" type="checkbox" name="tuesdayPM" value="yes">
-						</li>
-						<li>
-							<label for="wednesdayCheckAM">Wednesday:</label>
-							<input hidden checked type="checkbox" name="wednesdayAM" value="no">
-							<input hidden checked type="checkbox" name="wednesdayPM" value="no">
-							<input id="wednesdayCheckAM" type="checkbox" name="wednesdayAM" value="yes">
-							<input id="wednesdayCheckPM" type="checkbox" name="wednesdayPM" value="yes">
-						</li>
-						<li>
-							<label for="thursdayCheckAM">Thursday:</label>
-							<input hidden checked type="checkbox" name="thursdayAM" value="no">
-							<input hidden checked type="checkbox" name="thursdayPM" value="no">
-							<input id="thursdayCheckAM" type="checkbox" name="thursdayAM" value="yes">
-							<input id="thursdayCheckPM" type="checkbox" name="thursdayPM" value="yes">
-						</li>
-						<li>
-							<label for="fridayCheckAM">Friday:</label>
-							<input hidden checked type="checkbox" name="fridayAM" value="no">
-							<input hidden checked type="checkbox" name="fridayPM" value="no">
-							<input id="fridayCheckAM" type="checkbox" name="fridayAM" value="yes">
-							<input id="fridayCheckPM" type="checkbox" name="fridayPM" value="yes">
-						</li>
-					</ul>
-				</div>
+		<div class="container leftSideBottom blockLabels marginBottomTextBox" id="emergencyContact">
+			<h2>Emergency Contact</h2>
+			<label>First Name:</label>
+			<input id="emergencyFirstName" type="text" name="emergencyFirstName" required>
+
+			<label>Last Name:</label>
+			<input id="emergencyLastName" type="text" name="emergencyLastName" required>
+
+			<label>Relationship:</label>
+			<select id="emergencyRelationship" name="emergencyRelationship" required>
+				<option disabled selected value="" >Select Relationship</option>
+				<option value="Aunt">Aunt</option>
+				<option value="Brother">Brother</option>
+				<option value="">Caretaker</option>
+				<option value="Daughter">Daughter</option>
+				<option value="Doctor">Doctor</option>
+				<option value="Emergency Services">Emergency Services</option>
+				<option value="Father">Father</option>
+				<option value="Friend">Friend</option>
+				<option value="Grandfather">Grandfather</option>
+				<option value="Grandmother">Grandmother</option>
+				<option value="Husband">Husband</option>
+				<option value="In-law">In-law</option>
+				<option value="Mother">Mother</option>
+				<option value="Nurse">Nurse</option>
+				<option value="Other">Other</option>
+				<option value="Parole Officer">Parole Officer</option>
+				<option value="Significant Other">Significant Other</option>
+				<option value="Sister">Sister</option>
+				<option value="Son">Son</option>
+				<option value="Teacher">Teacher</option>
+				<option value="Uncle">Uncle</option>
+				<option value="Unknown">Unknown</option>
+				<option value="Wife">Wife</option>
+			</select>
+
+			<label>Phone:</label>
+			<input id="emergencyPhone" type="text" placeholder="(123) 456-7890" name="emergencyPhone" required>
+		</div>
+
+		<div class="container rightSideBottom blockCheckboxLabels" id="preferredDepartments">
+			<div class="container" id="preferredDepartmentsColumn2">
+				<h2>Preferred Department</h2>
+				<ul class="checkboxList">
+					<li>
+						<label for="frontCheck">Front:</label>
+						<input hidden checked type="checkbox" name="prefFront" value="no">
+						<input id="frontCheck" type="checkbox" name="prefFront" value="yes">
+					</li>
+					<li>
+						<label for="volunteerIntakeCheck">Volunteer Intake Coordinator:</label>
+						<input hidden checked type="checkbox" name="prefVIO" value="no">
+						<input id="volunteerCheck" type="checkbox" name="prefVIO" value="yes">
+					</li>
+					<li>	
+						<label for="kitchenCheck">Kitchen:</label>
+						<input hidden checked type="checkbox" name="prefKitchen" value="no">
+						<input id="kitchenCheck" type="checkbox" name="prefKitchen" value="yes">
+					</li>
+					<li>
+						<label for="warehouseCheck">Warehouse:</label>
+						<input hidden checked type="checkbox" name="prefWarehouse" value="no">
+						<input id="warehouseCheck" type="checkbox" name="prefWarehouse" value="yes">
+					</li>
+				</ul>
 			</div>
-
-			<div class="container leftSideBottom blockLabels marginBottomTextBox" id="emergencyContact">
-				<h2>Emergency Contact</h2>
-				<label>First Name:</label>
-				<input id="emergencyFirstName" type="text" name="emergencyFirstName" required>
-
-				<label>Last Name:</label>
-				<input id="emergencyLastName" type="text" name="emergencyLastName" required>
-
-				<label>Relationship:</label>
-				<select id="emergencyRelationship" name="emergencyRelationship" required>
-					<option disabled selected value="" >Select Relationship</option>
-					<option value="Aunt">Aunt</option>
-					<option value="Brother">Brother</option>
-					<option value="">Caretaker</option>
-					<option value="Daughter">Daughter</option>
-					<option value="Doctor">Doctor</option>
-					<option value="Emergency Services">Emergency Services</option>
-					<option value="Father">Father</option>
-					<option value="Friend">Friend</option>
-					<option value="Grandfather">Grandfather</option>
-					<option value="Grandmother">Grandmother</option>
-					<option value="Husband">Husband</option>
-					<option value="In-law">In-law</option>
-					<option value="Mother">Mother</option>
-					<option value="Nurse">Nurse</option>
-					<option value="Other">Other</option>
-					<option value="Parole Officer">Parole Officer</option>
-					<option value="Significant Other">Significant Other</option>
-					<option value="Sister">Sister</option>
-					<option value="Son">Son</option>
-					<option value="Teacher">Teacher</option>
-					<option value="Uncle">Uncle</option>
-					<option value="Unknown">Unknown</option>
-					<option value="Wife">Wife</option>
-				</select>
-
-				<label>Phone:</label>
-				<input id="emergencyPhone" type="text" placeholder="(123) 456-7890" name="emergencyPhone" required>
-			</div>
-
-			<div class="container rightSideBottom blockCheckboxLabels" id="preferredDepartments">
-				<div class="container" id="preferredDepartmentsColumn2">
-					<h2>Preferred Department</h2>
-					<ul class="checkboxList">
-						<li>
-							<label for="frontCheck">Front:</label>
-							<input hidden checked type="checkbox" name="prefFront" value="no">
-							<input id="frontCheck" type="checkbox" name="prefFront" value="yes">
-						</li>
-						<li>
-							<label for="volunteerIntakeCheck">Volunteer Intake Coordinator:</label>
-							<input hidden checked type="checkbox" name="prefVIO" value="no">
-							<input id="volunteerCheck" type="checkbox" name="prefVIO" value="yes">
-						</li>
-						<li>	
-							<label for="kitchenCheck">Kitchen:</label>
-							<input hidden checked type="checkbox" name="prefKitchen" value="no">
-							<input id="kitchenCheck" type="checkbox" name="prefKitchen" value="yes">
-						</li>
-						<li>
-							<label for="warehouseCheck">Warehouse:</label>
-							<input hidden checked type="checkbox" name="prefWarehouse" value="no">
-							<input id="warehouseCheck" type="checkbox" name="prefWarehouse" value="yes">
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="container bigButtons" id="submitButtons">
-				<button type="button" class="deleteButton">Delete Volunteer</button>
-				<a href="index2.php"><button type="button">Cancel</button></a>
-				<button type="button" id="updateButton">Save Changes</button>
-			</div>
-		</form>
+		</div>
+		
+		<div class="container bigButtons" id="submitButtons">
+			<button type="button" class="deleteButton">Delete Volunteer</button>
+			<a href="index2.php"><button type="button">Cancel</button></a>
+			<button type="button" id="updateButton">Save Changes</button>
+		</div>
+			</form>
 	</div>
+
+	<!-- Shown on Ajax to edit volunteer success -->
+	<div id="dialog" style="display:none">Volunteer information was sucessfully changed.</div>
 
 </body>
 </html>

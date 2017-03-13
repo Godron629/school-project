@@ -2,6 +2,18 @@ var volunteerId = '';
 
 $(document).ready(function() {
 
+    $("#dialog").dialog({
+        autoOpen: false,
+        draggable: false,
+        title: "Success",
+        buttons: [{
+                	text: "Ok",
+                	click: function() {
+                		$(this).dialog("close");
+                	}
+                }]
+    });	
+
 	$("#updateButton").on('click', function() {
 		var changedForm = serializeForm();
 		var volunteerId = $("#volunteerId").val();
@@ -15,6 +27,7 @@ $(document).ready(function() {
 						data: { form1 : origForm, form2 : changedForm},
 						success: function(data) {
 							origForm = serializeForm();
+							$("#dialog").dialog("open");
 						}
 					});
 				} 
