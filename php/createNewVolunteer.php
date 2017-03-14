@@ -1,184 +1,206 @@
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 
-	if($_SERVER['REQUEST_METHOD'] == 'POST') {
-		createVolunteer();
-	}
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	createVolunteer();
+}
 
-	function createVolunteer() {
-		if(volunteerExists()) {
-			return db_error();
-		} 
+function createVolunteer() {
+	if(volunteerExists()) {
+		die("Error: Volunteer already exists");
+	} 
 
-		if ($volunteerId = makeVolunteerRecord()) {
-			makePreferredAvailabilityRecord($volunteerId);
-			makePreferredDepartmentRecord($volunteerId);
+	//If successful, makeVolunteerRow returns new row Id, making this true
+	if ($volunteerId = makeVolunteerRow()) {
+		makePrefAvailRow($volunteerId);
+		makePrefDeptRow($volunteerId);
 
-			if($emergencyContactId = emergencyContactExists()) {
-				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
-			} else {
-				$emergencyContactId = makeEmergencyContactRecord();
-				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
-			}
+		if($emergencyContactId = emergencyContactExists()) {
+			//Emergency Contact already exists, so link them to volunteer
+			joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 		} else {
-			echo "Error: Volunteer record creation unsuccessful:" . db_error();
+			//Emergency Contact does not exist, so make them, then link
+			$emergencyContactId = makeEmergencyContactRow();
+			joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 		}
+	} else {
+		die("Error: Volunteer record creation unsuccessful: " . db_error());
+	}
+}
+
+function volunteerExists() {
+	$firstName = regexForNames($_POST['volunteerFirstName']);
+	$firstName = db_quote($firstName);
+	$lastName = regexForNames($_POST['volunteerLastName']);
+	$lastName = db_quote($lastName);
+	$birthdate = db_quote($_POST['volunteerDOB']);
+
+	$rows = db_select("SELECT volunteer_id FROM volunteer WHERE volunteer_fname={$firstName}
+	 AND volunteer_lname={$lastName} AND volunteer_birthdate={$birthdate}");
+
+	return ($rows) ? true : false; 
+}
+
+function makeVolunteerRow() {
+	$connection = db_connect();
+
+	$firstName = regexForNames($_POST['volunteerFirstName']);
+	$firstName = db_quote($firstName);
+
+	$lastName = regexForNames($_POST['volunteerLastName']);
+	$lastName = db_quote($lastName);
+
+	$email = db_quote($_POST['volunteerEmail']);
+	$birthdate = db_quote($_POST['volunteerDOB']);
+	$gender = db_quote($_POST['volunteerGender']);
+
+	$address = regexForNames($_POST['volunteerAddress']);
+	$address = db_quote($address);
+
+	$city = regexForNames($_POST['volunteerCity']);
+	$city = db_quote($city);
+
+	$province = db_quote($_POST['province']);
+	$postalCode = db_quote($_POST['postalCode']);
+
+	$primaryPhone = regexForPhone($_POST['volunteerPrimaryPhone']);
+	$primaryPhone = db_quote($primaryPhone);
+
+	$secondaryPhone = secondaryPhone();
+
+	//Volunteers are active by default
+	$volunteerStatus = true;
+
+	db_query("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES ($firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus)");
+
+	return newRowId($connection);
+}
+
+	function secondaryPhone() {
+		//Secondary phone is not required, so if nothing is entered...
+	if(empty($_POST['volunteerSecondaryPhone'])) {
+		return db_quote("None");
+	} else {
+		$phone = regexForPhone($_POST['volunteerSecondaryPhone']);
+		return db_quote($phone);
+	}
+}
+
+function makePrefAvailRow($volunteerId) {
+	$connection = db_connect();
+	$daysAndShifts = getPrefAvailFromForm();
+	
+	//Insert the values of the checkboxes for each day
+	foreach($daysAndShifts as $day => $preference) {
+		$preferenceAM = $preference['AM'];
+		$preferencePM = $preference['PM'];
+
+		db_query("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES ($volunteerId, '$day', $preferenceAM, $preferencePM)");
 	}
 
-	function volunteerExists() {
-		$firstName = db_quote($_POST['volunteerFirstName']);
-		$lastName = db_quote($_POST['volunteerLastName']);
-		$birthdate = db_quote($_POST['volunteerDOB']);
+	return newRowId($connection);
+}
 
-		$rows = db_select("SELECT volunteer_id FROM volunteer WHERE volunteer_fname=$firstName AND volunteer_lname=$lastName AND volunteer_birthdate=$birthdate");
+function getPrefAvailFromForm() {
+	$weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+	$daysAndShifts = array();
 
-		return ($rows) ? true : false; 
+	//Get the value of each preferred availiability checkbox: $dayAM = 'yes' or 'no'
+	foreach ($weekdays as $day) {
+		$dayAM = db_quote($_POST[$day . "AM"]);
+		$dayPM = db_quote($_POST[$day . "PM"]);
+
+		$daysAndShifts[$day] = ["AM" => $dayAM, "PM" => $dayPM];
 	}
 
-	function makeVolunteerRecord() {
-		$connection = db_connect();
+	return $daysAndShifts;
+}
 
-		//real_escape_string form inputs and remove symbols from apropriate fields
-		$firstName = db_quote($_POST['volunteerFirstName']);
+function makePrefDeptRow($volunteerId) {
+	$connection = db_connect();
+	$preferredDepartments = getPrefDeptFromForm();
 
-		$lastName = db_quote($_POST['volunteerLastName']);
-
-		$email = db_quote($_POST['volunteerEmail']);
-		$birthdate = db_quote($_POST['volunteerDOB']);
-		$gender = db_quote($_POST['volunteerGender']);
-
-		$address = db_quote($_POST['volunteerAddress']);
-
-		$city = db_quote($_POST['volunteerCity']);
-
-		$province = db_quote($_POST['province']);
-		$postalCode = db_quote($_POST['postalCode']);
-
-		$primaryPhone = removeSymbolsFromPhone($_POST['volunteerPrimaryPhone']);
-		$primaryPhone = db_quote($primaryPhone);
-
-		//Secondary phone is not requred
-		$secondaryPhone = getSecondaryPhoneFromForm();
-
-		//Volunteers are active by default
-		$volunteerStatus = true;
-
-		db_query("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES ($firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus)");
-
-		return wasAutoIncrementQuerySuccesful($connection);
+	foreach($preferredDepartments as $department => $preference) {
+		db_query("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES ($volunteerId, '{$department}', {$preference})");
 	}
 
-	function removeSymbolsFromPhone($phone) {
-       $phone = preg_replace("([^0-s]+)", "", $phone);
-       return $phone;
-    }
+	return newRowId($connection);
+}
 
-   	function getSecondaryPhoneFromForm() {
-		if(empty($_POST['volunteerSecondaryPhone'])) {
-			return db_quote("None");
-		} else {
-			$phone = removeSymbolsFromPhone($_POST['volunteerSecondaryPhone']);
-			return db_quote($phone);
-		}
-	}
+function getPrefDeptFromForm() {
+	$connection = db_connect();
 
-	function makePreferredAvailabilityRecord($volunteerId) {
-		$connection = db_connect();
-		$daysAndShifts = getDaysAndShiftsFromForm();
-		
-		foreach($daysAndShifts as $key => $value) {
-			db_query("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES ($volunteerId, {$key}, {$value['AM']}, {$value['PM']})");
-		}
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
+	//Get value (preference) of each department checkbox: 'yes' or 'no'
+	$preferredDepartments = [
+		"front" => db_quote($_POST["prefFront"]), 
+		"vio" => db_quote($_POST["prefVIO"]),
+		"kitchen" => db_quote($_POST["prefKitchen"]),
+		"warehouse" => db_quote($_POST["prefWarehouse"])
+	];
 
-	function getDaysAndShiftsFromForm() {
-		$weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
-		$daysAndShifts = array();
-		
-		foreach ($weekdays as $value) {
-			$daysAndShifts[db_quote($value)] = ["AM" => db_quote($_POST[$value . 'AM']), "PM" => db_quote($_POST[$value . 'PM'])];
-		}
-		return $daysAndShifts;
-	}
+	return $preferredDepartments;
+}
 
-	function makePreferredDepartmentRecord($volunteerId) {
-		$connection = db_connect();
-		$selectedDepartments = getDepartmentsFromForm();
+function emergencyContactExists() {
+	$connection = db_connect();
 
-		foreach($selectedDepartments as $key => $value) {
-			db_query("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES ($volunteerId, '{$key}', {$value})");
-		}
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
+	$firstName = regexForNames($_POST['emergencyFirstName']);
+	$firstName = db_quote($firstName);
 
-	function getDepartmentsFromForm() {
-		$connection = db_connect();
+	$lastName = regexForNames($_POST['emergencyLastName']);
+	$lastName = db_quote($lastName);
 
-		$selectedDepartments = [
-			"front" => db_quote($_POST["prefFront"]), 
-			"vio" => db_quote($_POST["prefVIO"]),
-			"kitchen" => db_quote($_POST["prefKitchen"]),
-			"warehouse" => db_quote($_POST["prefWarehouse"])
-		];
-		return $selectedDepartments;
-	}
+	$rows = db_select("SELECT emergency_contact_id FROM emergency_contact WHERE emergency_contact_fname={$firstName} AND emergency_contact_lname={$lastName}");
 
-	function emergencyContactExists() {
-		$connection = db_connect();
+	return ($rows) ? $rows[0]['emergency_contact_id'] : false;
+}
 
-		$firstName = db_quote($_POST['emergencyFirstName']);
-		$lastName = db_quote($_POST['emergencyLastName']);
+function newRowId($connection) {
+	if($connection->error) {
+		return false;
+	} else {
+		return $connection->insert_id;
+	}	
+}
 
-		$rows = db_select("SELECT emergency_contact_id FROM emergency_contact WHERE emergency_contact_fname={$firstName} AND emergency_contact_lname={$lastName}");
+function makeEmergencyContactRow() {
+	$connection = db_connect();
 
-		return ($rows) ? $rows[0]['emergency_contact_id'] : false;
-	}
+	$firstName = regexForNames($_POST['emergencyFirstName']);
+	$firstName = db_quote($firstName);
 
-	function wasAutoIncrementQuerySuccesful($connection) {
-		if($connection->error) {
-			return false;
-		} else {
-			//Success: Return the autoincrement Id
-			return $connection->insert_id;
-		}	
-	}
+	$lastName = regexForNames($_POST['emergencyLastName']);
+	$lastName = db_quote($lastName);
 
-	function makeEmergencyContactRecord() {
-		$connection = db_connect();
+	db_query("INSERT INTO emergency_contact (emergency_contact_fname, emergency_contact_lname) VALUES ({$firstName}, {$lastName})");
 
-		$firstName = removeSymbolsFromText($_POST['emergencyFirstName']);
-		$firstName = db_quote($_POST['emergencyFirstName']);
+	return newRowId($connection);
+}
 
-		$lastName = removeSymbolsFromText($_POST['emergencyLastName']);
-		$lastName = db_quote($_POST['emergencyLastName']);
+function joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId) {
+	$connection = db_connect();
 
-		db_query("INSERT INTO emergency_contact (emergency_contact_fname, emergency_contact_lname) VALUES ($firstName, $lastName)");
+	$volunteerId = db_quote($volunteerId);
+	$emergencyContactId = db_quote($emergencyContactId);
 
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
+	$relationship = regexForNames($_POST['emergencyRelationship']);
+	$relationship = db_quote($relationship);
 
-	function joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId) {
-		$connection = db_connect();
+	$phone = regexForPhone($_POST['emergencyPhone']);
+	$phone = db_quote($phone);
 
-		$volunteerId = db_quote($volunteerId);
-		$emergencyContactId = db_quote($emergencyContactId);
-		$relationship = db_quote($_POST['emergencyRelationship']);
+	db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES ({$volunteerId}, {$emergencyContactId}, {$relationship}, {$phone})");
 
-		$phone = removeSymbolsFromPhone($_POST['emergencyPhone']);
-		$phone = db_quote($phone);
-
-		db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES ($volunteerId, $emergencyContactId, $relationship, $phone)");
-
-		return wasAutoIncrementQuerySuccesful($connection);
-	}
+	return newRowId($connection);
+}
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>New Volunteer PHP</title>
+<title>New Volunteer PHP</title>
 </head>
 <body>
 <p>New Volunteer PHP Page</p>
