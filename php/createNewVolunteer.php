@@ -2,6 +2,9 @@
 include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 
+error_reporting(E_ALL);
+ini_set('display_errors',1);
+
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		createVolunteer();
 	}
@@ -43,13 +46,19 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 	function makeVolunteerRecord() {
 		$connection = db_connect();
 
-		$firstName = db_quote($_POST['volunteerFirstName']);
-		$lastName = db_quote($_POST['volunteerLastName']);
+		$firstName = regexForNames($_POST['volunteerFirstName']);
+		$lastName = regexForNames($_POST['volunteerLastName']);
+		$address = regexForNames($_POST['volunteerAddress']);
+		$city = regexForNames($_POST['volunteerCity']);
+
+		$firstName = db_quote($firstName);
+		$lastName = db_quote($lastName);
+		$address = db_quote($address);
+		$city = db_quote($city);
+
 		$email = db_quote($_POST['volunteerEmail']);
 		$birthdate = db_quote($_POST['volunteerDOB']);
 		$gender = db_quote($_POST['volunteerGender']);
-		$address = db_quote($_POST['volunteerAddress']);
-		$city = db_quote($_POST['volunteerCity']);
 		$province = db_quote($_POST['province']);
 		$postalCode = db_quote($_POST['postalCode']);
 
@@ -62,7 +71,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 		//Volunteers are active by default
 		$volunteerStatus = true;
 
-		db_query("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES ($firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus)");
+		$stmt = $connection->prepare("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+
+		$stmt->bind_param("ssssssssssss", $firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus);
+
+		$stmt->execute();
 
 		return newRowId($connection);
 	}
@@ -83,7 +96,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 		
 		foreach($daysAndShifts as $day => $preference) {
 
-			$stmt = $connection->prepare("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES (?, ?, ?, ?)");
+			$stmt = $connection->prepare("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES (?,?,?,?)");
 
 			$stmt->bind_param("ssss", $volunteerId, $day, $am, $pm);
 
@@ -114,11 +127,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 
 		foreach($selectedDepartments as $department => $preference) {
 
-			$stmt = $connection->prepare("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES (?, ?, ?)");
+			$stmt = $connection->prepare("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES (?,?,?)");
 
 			$stmt->bind_param("sss", $volunteerId, $department, $preference);
 
-			$stmy->execute();
+			$stmt->execute();
 		}
 		return newRowId($connection);
 	}
@@ -146,6 +159,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 
 		$stmt->execute();
 
+		$result = $stmt->get_result();
+
 		return ($rows) ? $rows[0]['emergency_contact_id'] : false;
 	}
 
@@ -167,7 +182,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 		$lastName = regexForNames($_POST['emergencyLastName']);
 		$lastName = db_quote($lastName);
 
-		$stmt = $connection->prepare("INSERT INTO emergency_contact (emergency_conact_fname, emergency_contact_lname) VALUES (?, ?)");
+		$stmt = $connection->prepare("INSERT INTO emergency_contact (emergency_conact_fname, emergency_contact_lname) VALUES (?,?)");
 
 		$stmt->bind_param("ss", $firstName, $lastName);
 
@@ -188,9 +203,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 		$phone = regexForPhone($_POST['emergencyPhone']);
 		$phone = db_quote($phone);
 
-		db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES ($volunteerId, $emergencyContactId, $relationship, $phone)");
-
-		$stmt = $connection->prepare("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES (?, ?, ?, ?)");
+		$stmt = $connection->prepare("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES (?,?,?,?)");
 
 		$stmt->bind_param("ssss", $volunteerId, $emergencyContactId, $relationship, $phone);
 

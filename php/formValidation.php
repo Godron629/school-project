@@ -6,8 +6,8 @@ function regexForPhone($phone) {
 }
 
 function regexForNames($text) {
-	//Remove anything not a-z, apostrophe, hyphen or single space
-	return preg_replace("/[^a-zA-Z '-]+/", "", $text);
+	//Remove anything not a-z, numbers, apostrophe, hyphen or single space
+	return preg_replace("/[^a-zA-Z0-9 '-]+/", "", $text);
 }
 
 ?>
