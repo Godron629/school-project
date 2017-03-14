@@ -15,7 +15,8 @@ function db_connect() {
 	}
 
 	if($connection === false) {
-		db_error();
+		echo db_error();
+		return false;
 	}
 
 	return $connection;
@@ -26,6 +27,7 @@ function db_query($query) {
 	$result = $connection->query($query);
 
 	if($result === false) {
+		echo "Query Error: " . db_error();
 		return false;
 	}
 
@@ -55,7 +57,7 @@ function db_error() {
 
 function db_quote($value) {
 	$connection = db_connect();
-	return $connection->real_escape_string($value);
+	return "'" . $connection->real_escape_string($value) . "'";
 }
 
 ?>
