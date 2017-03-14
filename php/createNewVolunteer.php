@@ -1,5 +1,6 @@
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST') {
 		createVolunteer();
@@ -11,21 +12,25 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 		} 
 
 		if ($volunteerId = makeVolunteerRecord()) {
-			makePreferredAvailabilityRecord($volunteerId);
-			makePreferredDepartmentRecord($volunteerId);
+			makePrefAvailRecord($volunteerId);
+			makePrefDeptRecord($volunteerId);
 
 			if($emergencyContactId = emergencyContactExists()) {
+				//Emergency contact already exists
 				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 			} else {
+				//Emergency contact does not already exists
 				$emergencyContactId = makeEmergencyContactRecord();
 				joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId);
 			}
 		} else {
-			echo "Error: Volunteer record creation unsuccessful:" . db_error();
+			//Volunteer creation was unsuccessful
+			return db_error();
 		}
 	}
 
 	function volunteerExists() {
+		//Check if the volunteer with same name and birthdate already exists in the database
 		$firstName = db_quote($_POST['volunteerFirstName']);
 		$lastName = db_quote($_POST['volunteerLastName']);
 		$birthdate = db_quote($_POST['volunteerDOB']);
@@ -38,89 +43,94 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 	function makeVolunteerRecord() {
 		$connection = db_connect();
 
-		//real_escape_string form inputs and remove symbols from apropriate fields
 		$firstName = db_quote($_POST['volunteerFirstName']);
-
 		$lastName = db_quote($_POST['volunteerLastName']);
-
 		$email = db_quote($_POST['volunteerEmail']);
 		$birthdate = db_quote($_POST['volunteerDOB']);
 		$gender = db_quote($_POST['volunteerGender']);
-
 		$address = db_quote($_POST['volunteerAddress']);
-
 		$city = db_quote($_POST['volunteerCity']);
-
 		$province = db_quote($_POST['province']);
 		$postalCode = db_quote($_POST['postalCode']);
 
-		$primaryPhone = removeSymbolsFromPhone($_POST['volunteerPrimaryPhone']);
+		$primaryPhone = regexForPhone($_POST['volunteerPrimaryPhone']);
 		$primaryPhone = db_quote($primaryPhone);
 
 		//Secondary phone is not requred
-		$secondaryPhone = getSecondaryPhoneFromForm();
+		$secondaryPhone = secondaryPhone();
 
 		//Volunteers are active by default
 		$volunteerStatus = true;
 
 		db_query("INSERT INTO volunteer (volunteer_fname, volunteer_lname, volunteer_email, volunteer_birthdate, volunteer_gender, volunteer_street, volunteer_city, volunteer_province, volunteer_postcode, volunteer_primaryphone, volunteer_secondaryphone, volunteer_status) VALUES ($firstName, $lastName, $email, $birthdate, $gender, $address, $city, $province, $postalCode, $primaryPhone, $secondaryPhone, $volunteerStatus)");
 
-		return wasAutoIncrementQuerySuccesful($connection);
+		return newRowId($connection);
 	}
 
-	function removeSymbolsFromPhone($phone) {
-       $phone = preg_replace("([^0-s]+)", "", $phone);
-       return $phone;
-    }
-
-   	function getSecondaryPhoneFromForm() {
+	function secondaryPhone() {
+		//Secondary phone is not required, so instead of having a blank value...
 		if(empty($_POST['volunteerSecondaryPhone'])) {
 			return db_quote("None");
 		} else {
-			$phone = removeSymbolsFromPhone($_POST['volunteerSecondaryPhone']);
+			$phone = regexForPhone($_POST['volunteerSecondaryPhone']);
 			return db_quote($phone);
 		}
 	}
 
-	function makePreferredAvailabilityRecord($volunteerId) {
+	function makePrefAvailRecord($volunteerId) {
 		$connection = db_connect();
-		$daysAndShifts = getDaysAndShiftsFromForm();
+		$daysAndShifts = getPrefAvailFromForm();
 		
-		foreach($daysAndShifts as $key => $value) {
-			db_query("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES ($volunteerId, {$key}, {$value['AM']}, {$value['PM']})");
+		foreach($daysAndShifts as $day => $preference) {
+
+			$stmt = $connection->prepare("INSERT INTO pref_avail (volunteer_fk, weekday, am, pm) VALUES (?, ?, ?, ?)");
+
+			$stmt->bind_param("ssss", $volunteerId, $day, $am, $pm);
+
+			$stmt->execute();
 		}
-		return wasAutoIncrementQuerySuccesful($connection);
+
+		return newRowId($connection);
 	}
 
-	function getDaysAndShiftsFromForm() {
+	function getPrefAvailFromForm() {
 		$weekdays = ["monday", "tuesday", "wednesday", "thursday", "friday"];
 		$daysAndShifts = array();
 		
-		foreach ($weekdays as $value) {
-			$daysAndShifts[db_quote($value)] = ["AM" => db_quote($_POST[$value . 'AM']), "PM" => db_quote($_POST[$value . 'PM'])];
+		foreach ($weekdays as $day) {
+			//'yes' or 'no'
+			$dayAM = db_quote($_POST[$day . 'AM']);
+			$dayPM = db_quote($_POST[$day . 'PM']);
+
+			$daysAndShifts[$day] = ["AM" => $dayAM, "PM" => $dayPM];
 		}
+
 		return $daysAndShifts;
 	}
 
-	function makePreferredDepartmentRecord($volunteerId) {
+	function makePrefDeptRecord($volunteerId) {
 		$connection = db_connect();
-		$selectedDepartments = getDepartmentsFromForm();
+		$selectedDepartments = getPrefDeptFromForm();
 
-		foreach($selectedDepartments as $key => $value) {
-			db_query("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES ($volunteerId, '{$key}', {$value})");
+		foreach($selectedDepartments as $department => $preference) {
+
+			$stmt = $connection->prepare("INSERT INTO pref_dept (volunteer_fk, department, allow) VALUES (?, ?, ?)");
+
+			$stmt->bind_param("sss", $volunteerId, $department, $preference);
+
+			$stmy->execute();
 		}
-		return wasAutoIncrementQuerySuccesful($connection);
+		return newRowId($connection);
 	}
 
-	function getDepartmentsFromForm() {
-		$connection = db_connect();
-
+	function getPrefDeptFromForm() {
 		$selectedDepartments = [
 			"front" => db_quote($_POST["prefFront"]), 
 			"vio" => db_quote($_POST["prefVIO"]),
 			"kitchen" => db_quote($_POST["prefKitchen"]),
 			"warehouse" => db_quote($_POST["prefWarehouse"])
 		];
+
 		return $selectedDepartments;
 	}
 
@@ -130,16 +140,20 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 		$firstName = db_quote($_POST['emergencyFirstName']);
 		$lastName = db_quote($_POST['emergencyLastName']);
 
-		$rows = db_select("SELECT emergency_contact_id FROM emergency_contact WHERE emergency_contact_fname={$firstName} AND emergency_contact_lname={$lastName}");
+		$stmt = $connection->prepare("SELECT emergency_contact_id FROM emergency_contact WHERE emergency_contact_fname=? AND emergency_contact_lname=?");
+
+		$stmt->bind_param("ss", $firstName, $lastName);
+
+		$stmt->execute();
 
 		return ($rows) ? $rows[0]['emergency_contact_id'] : false;
 	}
 
-	function wasAutoIncrementQuerySuccesful($connection) {
+	function newRowId($connection) {
 		if($connection->error) {
 			return false;
 		} else {
-			//Success: Return the autoincrement Id
+			//Return the Id of the last created row
 			return $connection->insert_id;
 		}	
 	}
@@ -147,15 +161,19 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 	function makeEmergencyContactRecord() {
 		$connection = db_connect();
 
-		$firstName = removeSymbolsFromText($_POST['emergencyFirstName']);
-		$firstName = db_quote($_POST['emergencyFirstName']);
+		$firstName = regexForNames($_POST['emergencyFirstName']);
+		$firstName = db_quote($firstName);
 
-		$lastName = removeSymbolsFromText($_POST['emergencyLastName']);
-		$lastName = db_quote($_POST['emergencyLastName']);
+		$lastName = regexForNames($_POST['emergencyLastName']);
+		$lastName = db_quote($lastName);
 
-		db_query("INSERT INTO emergency_contact (emergency_contact_fname, emergency_contact_lname) VALUES ($firstName, $lastName)");
+		$stmt = $connection->prepare("INSERT INTO emergency_contact (emergency_conact_fname, emergency_contact_lname) VALUES (?, ?)");
 
-		return wasAutoIncrementQuerySuccesful($connection);
+		$stmt->bind_param("ss", $firstName, $lastName);
+
+		$stmt->execute();
+
+		return newRowId($connection);
 	}
 
 	function joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId) {
@@ -163,14 +181,22 @@ include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
 
 		$volunteerId = db_quote($volunteerId);
 		$emergencyContactId = db_quote($emergencyContactId);
-		$relationship = db_quote($_POST['emergencyRelationship']);
 
-		$phone = removeSymbolsFromPhone($_POST['emergencyPhone']);
+		$relationship = regexForNames($_POST['emergencyRelationship']);
+		$relationship = db_quote($relationship);
+
+		$phone = regexForPhone($_POST['emergencyPhone']);
 		$phone = db_quote($phone);
 
 		db_query("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES ($volunteerId, $emergencyContactId, $relationship, $phone)");
 
-		return wasAutoIncrementQuerySuccesful($connection);
+		$stmt = $connection->prepare("INSERT INTO jnct_volunteer_emergency_contact (volunteer_fk, emergency_contact_fk, relationship, phone) VALUES (?, ?, ?, ?)");
+
+		$stmt->bind_param("ssss", $volunteerId, $emergencyContactId, $relationship, $phone);
+
+		$stmt->execute();
+
+		return newRowId($connection);
 	}
 
 ?>
