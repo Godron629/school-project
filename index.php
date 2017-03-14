@@ -3,6 +3,21 @@
 <head>
 	<title>New Volunteer</title>
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+	<!-- jQuery  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!-- Dialog Box -->
+	<script
+  	src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  	crossorigin="anonymous"></script>
+
+  	<!-- Dialog Box CSS -->
+  	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />	
+
+	<!-- Default Scripts -->
+	<script src="javascript/newVolunteer.js"></script>
 </head>
 <body class="wrapper">
 
@@ -30,7 +45,7 @@
 	<div class="container main">
 		<div class="container leftSide blockLabels marginBottomTextBox" id="volunteerInformation">
 			<h2>Volunteer Information</h2>
-			<form action="php/createNewVolunteer.php" method="POST">
+			<form action="php/createNewVolunteer.php" id="volunteerForm" method="POST">
 				<div id="volunteerInformationColumn1">
 					<label for="volunteerFirstName">First Name:</label>
 					<input id="volunteerFirstName" type="text" name="volunteerFirstName" required>
@@ -207,6 +222,11 @@
 			</div>
 		</form>
 	</div>
+
+	<!-- Shown on Ajax to edit volunteer success -->
+	<div id="successDialog" style="display:none">
+		<p>Volunteer was sucessfully created!</p>
+	</div>	
 
 </body>
 </html>

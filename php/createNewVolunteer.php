@@ -7,9 +7,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 function createVolunteer() {
-	if(volunteerExists()) {
+/*	if(volunteerExists()) {
 		die("Error: Volunteer already exists");
-	} 
+	} */
 
 	//If successful, makeVolunteerRow returns new row Id, making this true
 	if ($volunteerId = makeVolunteerRow()) {
@@ -196,14 +196,3 @@ function joinVolunteerAndEmergencyContact($volunteerId, $emergencyContactId) {
 }
 
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>New Volunteer PHP</title>
-</head>
-<body>
-<p>New Volunteer PHP Page</p>
-
-</body>
-</html>
