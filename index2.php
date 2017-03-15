@@ -26,6 +26,7 @@
 	<!-- Default Scripts -->
 	<script src="javascript/loadVolunteer.js"></script>
 	<script src="javascript/updateVolunteer.js"></script>
+	<script src="javascript/deleteVolunteer.js"></script>
 	</script>
 </head>
 <body class="wrapper">
@@ -269,6 +270,16 @@
 	<div id="confirmChangesDialog" style="display:none">
 		<p>Are you sure you want to save your changes? All previous data will be lost. </p>
 	</div>	
+
+	<div id="confirmDeleteDialog" style="display:none">
+		<p>Are you sure you want to delete this volunteer? This action can not be undone.</p>
+	</div>	
+
+	<div id="successDeleteDialog" style="display:none">
+		<p>Volunteer Deleted</p>
+	</div>	
+
+
 
 </body>
 </html>
