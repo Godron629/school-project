@@ -70,7 +70,7 @@
 
 		<div class="container leftSide blockLabels marginBottomTextBox" id="volunteerInformation">
 			<h2>Volunteer Information</h2>
-			<form action="" method="POST">
+			<form action="" id="updateVolunteerForm" method="POST">
 				<div id="volunteerInformationColumn1">
 					<input id="volunteerId" type="text" name="volunteerId" hidden>
 
@@ -247,18 +247,28 @@
 		<div class="container bigButtons" id="submitButtons">
 			<button type="button" class="deleteButton">Delete Volunteer</button>
 			<a href="index2.php"><button type="button">Cancel</button></a>
-			<button type="button" id="updateButton">Save Changes</button>
+			<input type="submit" id="updateButton" name="updateButton" value="Save Changes">
 		</div>
 			</form>
 	</div>
 
 	<!-- Shown on Ajax to edit volunteer success -->
 	<div id="successDialog" style="display:none">
-
-	<p>Volunteer information was sucessfully changed!</p>
-	<p><small>*Name change requires refresh</small></p>
-
+		<p>Volunteer information was sucessfully changed!</p>
+		<p><small>*Name change requires refresh</small></p>
 	</div>
+
+	<div id="noneSelectedDialog" style="display:none">
+		<p>Please select a volunteer</p>
+	</div>
+
+	<div id="nothingChangedDialog" style="display:none">
+		<p>No fields have changed</p>
+	</div>	
+
+	<div id="confirmChangesDialog" style="display:none">
+		<p>Are you sure you want to save your changes? All previous data will be lost. </p>
+	</div>	
 
 </body>
 </html>

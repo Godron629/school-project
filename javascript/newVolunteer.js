@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function() {		
+
 	$("#volunteerForm").submit(function(e) {
 		e.preventDefault();
-
-		var test = $("#volunteerForm").serialize();
-		console.log(test);
+		
+		$("#volunteerForm").serialize();
 
 	    $("#successDialog").dialog({
 	        autoOpen: false,

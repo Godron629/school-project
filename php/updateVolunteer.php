@@ -145,7 +145,17 @@ function changeVolunteerRows ($changedFields, $changeForm) {
 function updateTable($volunteerId, $table, $column, $newValue) {
 	$pkOrFK = $table == "volunteer" ? "volunteer_id" : "volunteer_fk";
 
-	$sql = "UPDATE {$table} SET {$column}='{$newValue}' WHERE {$pkOrFK}={$volunteerId}";
+	if($table == "emergency_contact") {
+		//Get the emergency contact id associated with the volunteer being updated
+		$emergencyContact = db_select("SELECT emergency_contact_fk FROM jnct_volunteer_emergency_contact WHERE {$pkOrFK}={$volunteerId}");
+
+		$emergencyContactId = $emergencyContact[0]["emergency_contact_fk"];
+
+		$sql = "UPDATE {$table} SET {$column}='{$newValue}' WHERE emergency_contact_id={$emergencyContactId}";
+	} else {
+		$sql = "UPDATE {$table} SET {$column}='{$newValue}' WHERE {$pkOrFK}={$volunteerId}";
+	}
+
 	return db_query($sql);
 }
 	

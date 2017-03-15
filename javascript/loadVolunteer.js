@@ -17,14 +17,13 @@ $(document).ready(function() {
 				data: selection,
 				dataType: 'json',
 				success: function(data) {
-					console.log(data);
 					loadVolunteerIntoFields(data);
 					loadEmergencyContactIntoFields(data);
 					loadPreferredDepartmentsIntoFields(data);
 					loadPreferredAvailIntoFields(data);
 
 					//Save form state after load to compare against for changes
-					var $form = $('form');
+					var $form = $('#updateVolunteerForm');
 					origForm = $form.serialize();
 				}
 			});
@@ -64,7 +63,7 @@ function loadEmergencyContactIntoFields(data) {
 
 function loadPreferredDepartmentsIntoFields(data) {
 	//Deselect departments that have been checked from previous volunteer loads
-	$("#preferredDepartments input").prop("checked", false);
+	$("#preferredDepartments input:not([hidden])").prop("checked", false);
 
 	//Go through the department checkboxes and get the values
 	for (var i = 0; i < data["Dep"].length; i++) {
@@ -94,8 +93,8 @@ function loadPreferredDepartmentsIntoFields(data) {
 }
 
 function loadPreferredAvailIntoFields(data) {
-	//Unselect 
-	$("#preferredTimes input").prop('checked', false);
+	//Deselect departments that have been checked from previous volunteer loads
+	$("#preferredTimes input:not([hidden])").prop('checked', false);
 
 	//Go through the data and set the values of checkboxes 
 	for (var i = 0; i < data["Avail"].length; i++) {

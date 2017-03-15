@@ -2,6 +2,7 @@ var volunteerId = '';
 
 $(document).ready(function() {
 
+	//Shown if volunteer update was successful
     $("#successDialog").dialog({
         autoOpen: false,
         draggable: false,
@@ -16,35 +17,66 @@ $(document).ready(function() {
         }
     });	
 
-	$("#updateButton").on('click', function() {
-		var changedForm = serializeForm();
+    //Show if no volunteer is selected
+    $("#noneSelectedDialog").dialog({
+        autoOpen: false,
+        draggable: false,
+        title: "Warning",
+        buttons: {
+        	'Ok' : function() {
+        		$(this).dialog("close");
+        	}
+        }
+    });	    
+
+    //Show if no volunteer is selected
+    $("#nothingChangedDialog").dialog({
+        autoOpen: false,
+        draggable: false,
+        title: "Warning",
+        buttons: {
+        	'Ok' : function() {
+        		$(this).dialog("close");
+        	}
+        }
+    });	    
+
+    $("#updateVolunteerForm").submit(function(e) {
+    	e.preventDefault();
+
+		var changedForm = $("#updateVolunteerForm").serialize();
 		var volunteerId = $("#volunteerId").val();
+
+        console.log(volunteerId);
 
 		if(volunteerId != '') {
 			if(changedForm != origForm) {
-				if(confirm("Are you sure you want to save your changes?")) {
-					$.ajax({
-						url: "../php/updateVolunteer.php",
-						type: "POST", 
-						data: { form1 : origForm, form2 : changedForm},
-						success: function(data) {
-							origForm = serializeForm();
-							$("#successDialog").dialog("open");
-						}
-					});
-				} 
+				$("#confirmChangesDialog").dialog({
+					autoOpen: false,
+					draggable: false,
+					title: "Save Changes?",
+			        buttons: {
+				        "Cancel" : function() {
+				        	$(this).dialog("close");
+				        },
+				        "Save" : function() {
+							$.ajax({
+								url: "../php/updateVolunteer.php",
+								type: "POST", 
+								data: { form1 : origForm, form2 : changedForm},
+								success: function(data) {
+									origForm = $("#updateVolunteerForm").serialize();
+									$("#successDialog").dialog("open");
+								}
+							});				        	
+				        }
+			        }					
+				}).dialog("open");
 			} else {
-					alert("No form fields have changed - Volunteer records unchanged");
+				$("#nothingChangedDialog").dialog("open");
 			}
 		} else {
-				alert("Please select a volunteer");
+			$("#noneSelectedDialog").dialog("open");
 		}
-	});
+    });
 });
-
-
-function serializeForm() {
-	var $form = $('form');
-	var serializedForm = $form.serialize();
-	return serializedForm
-}
