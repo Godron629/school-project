@@ -127,6 +127,7 @@ function changeVolunteerRows ($changedFields, $changeForm) {
 	$fieldToColumnMap = json_decode($jsonFile, true);
 
 	$changedColumns = array();
+
 	//TODO Sanitize form values and phone numbers 
 	foreach ($fieldToColumnMap as $table => $value) {
 		foreach ($value as $fieldName => $columnName) {

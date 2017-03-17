@@ -31,6 +31,9 @@ $(document).ready(function() {
 	});		
 
 function loadVolunteerIntoFields(data) {
+	//Deselect active checkbox checked from previous volunteer loads
+	$("#volunteerInformation input:not([hidden])").prop("checked", false);
+
 	$("#volunteerId").val(data['Volunteer'].volunteer_id);
 	$("#volunteerFirstName").val(data['Volunteer'].volunteer_fname);
 	$("#volunteerLastName").val(data['Volunteer'].volunteer_lname);
@@ -49,6 +52,10 @@ function loadVolunteerIntoFields(data) {
 	$("#postalCode").val(data['Volunteer'].volunteer_postcode);
 	$("#volunteerPrimaryPhone").val(data['Volunteer'].volunteer_primaryphone);
 	$("#volunteerSecondaryPhone").val(data['Volunteer'].volunteer_secondaryphone);
+	
+	if(data['Volunteer'].volunteer_status == '1') {
+		$("#volunteerStatusCheck").prop('checked', true);
+	}
 }
 
 function loadEmergencyContactIntoFields(data) {

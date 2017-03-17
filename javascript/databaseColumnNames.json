@@ -12,7 +12,7 @@
 		"postalCode" : "volunteer_postcode", 
 		"volunteerPrimaryPhone" : "volunteer_primaryphone", 
 		"volunteerSecondaryPhone" : "volunteer_secondaryphone", 
-		"volunteerStatus" : "volunteer_status"
+		"volunteerStatusCheck" : "volunteer_status"
 	}, 
 	"emergency_contact" : {
 		"emergencyId" : "emergency_contact_id",

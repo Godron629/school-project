@@ -69,7 +69,7 @@
 			</form>
 		</div>
 
-		<div class="container leftSide blockLabels marginBottomTextBox" id="volunteerInformation">
+		<div class="container leftSide blockLabels blockCheckboxLabels marginBottomTextBox" id="volunteerInformation">
 			<h2>Volunteer Information</h2>
 			<form action="" id="updateVolunteerForm" method="POST">
 				<div id="volunteerInformationColumn1">
@@ -130,6 +130,10 @@
 
 					<label for="volunteerSecondaryPhone">Secondary Phone: <br><small>*Not Required</small></label>
 					<input id="volunteerSecondaryPhone" type="text" placeholder="(123) 456-7890" name="volunteerSecondaryPhone">
+
+					<label for="volunteerStatusCheck">Active:</label>
+					<input hidden checked name="volunteerStatusCheck" type="checkbox" value="0">
+					<input name="volunteerStatusCheck" id="volunteerStatusCheck" type="checkbox" value="1">			
 				</div>
 		</div>
 

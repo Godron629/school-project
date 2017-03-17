@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"include",
+				"includeInactiveCheck"
+			],
+			[
 				"emer",
 				"emergencyContactId"
 			],
@@ -216,61 +220,29 @@
 	"buffers":
 	[
 		{
-			"file": "php/updateVolunteer.php",
-			"settings":
-			{
-				"buffer_size": 5026,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "javascript/updateVolunteer.js",
-			"settings":
-			{
-				"buffer_size": 1978,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "index2.php",
 			"settings":
 			{
-				"buffer_size": 11356,
+				"buffer_size": 11610,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "javascript/deleteVolunteer.js",
+			"file": "javascript/loadVolunteer.js",
 			"settings":
 			{
-				"buffer_size": 1021,
+				"buffer_size": 4788,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "php/deleteVolunteer.php",
+			"file": "php/updateVolunteer.php",
 			"settings":
 			{
-				"buffer_size": 421,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "php/createNewVolunteer.php",
-			"settings":
-			{
-				"buffer_size": 6271,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "php/formValidation.php",
-			"settings":
-			{
-				"buffer_size": 229,
+				"buffer_size": 5027,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -279,6 +251,15 @@
 			"settings":
 			{
 				"buffer_size": 1162,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/stylesheet.css",
+			"settings":
+			{
+				"buffer_size": 2743,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -299,7 +280,7 @@
 			{
 				"buffer_size": 0,
 				"line_ending": "Windows",
-				"name": "Xdebug Stack",
+				"name": "Xdebug Watch",
 				"read_only": true,
 				"scratch": true
 			}
@@ -310,16 +291,16 @@
 			{
 				"buffer_size": 0,
 				"line_ending": "Windows",
-				"name": "Xdebug Watch",
+				"name": "Xdebug Stack",
 				"read_only": true,
 				"scratch": true
 			}
 		},
 		{
-			"contents": "=> C:\\wamp64\\www\\php\\createNewVolunteer.php\n\t|+| 5\n=> C:\\wamp64\\www\\php\\updateVolunteer.php\n\t|+| 153\n",
+			"contents": "=> C:\\wamp64\\www\\php\\updateVolunteer.php\n\t|+| 14\n",
 			"settings":
 			{
-				"buffer_size": 101,
+				"buffer_size": 49,
 				"line_ending": "Windows",
 				"name": "Xdebug Breakpoint",
 				"read_only": true,
@@ -359,16 +340,16 @@
 				"Xdebug: Stop Debugging"
 			],
 			[
+				"start",
+				"Xdebug: Start Debugging (Launch Browser)"
+			],
+			[
 				"res",
 				"Xdebug: Restart Session"
 			],
 			[
 				"re",
 				"Xdebug: Restart Session"
-			],
-			[
-				"start",
-				"Xdebug: Start Debugging (Launch Browser)"
 			],
 			[
 				"rest",
@@ -424,6 +405,7 @@
 	"expanded_folders":
 	[
 		"/C/wamp64/www",
+		"/C/wamp64/www/css",
 		"/C/wamp64/www/javascript",
 		"/C/wamp64/www/php",
 		"/C/wamp64/www/queries",
@@ -431,17 +413,19 @@
 	],
 	"file_history":
 	[
+		"/C/wamp64/www/index2.php",
+		"/C/wamp64/www/css/stylesheet.css",
+		"/C/wamp64/www/php/updateVolunteer.php",
+		"/C/wamp64/www/javascript/deleteVolunteer.js",
 		"/C/wamp64/www/php/databasePHPFunctions.php",
+		"/C/wamp64/www/php/formValidation.php",
+		"/C/wamp64/www/php/createNewVolunteer.php",
 		"/C/wamp64/www/php/deleteVolunteer.php",
 		"/C/wamp64/logs/php_error.log",
 		"/C/wamp64/www/javascript/newVolunteer.js",
 		"/C/wamp64/www/index.php",
-		"/C/wamp64/www/index2.php",
-		"/C/wamp64/www/php/updateVolunteer.php",
 		"/C/wamp64/www/javascript/updateVolunteer.js",
 		"/C/wamp64/www/javascript/loadVolunteer.js",
-		"/C/wamp64/www/php/createNewVolunteer.php",
-		"/C/wamp64/www/php/formValidation.php",
 		"/C/wamp64/www/Reports/vIndiInfo.php",
 		"/C/wamp64/www/php/test.php",
 		"/C/wamp64/logs/apache_error.log",
@@ -451,7 +435,6 @@
 		"/C/wamp64/www/javascript/databaseColumnNames.json",
 		"/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
 		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
-		"/C/wamp64/www/css/stylesheet.css",
 		"/C/Users/Gideon/Desktop/index.js",
 		"/C/wamp64/www/php/test.js",
 		"/C/wamp64/www/php/testphp.php",
@@ -515,6 +498,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"volunteerActiveCheck",
 			"emergen",
 			"serial",
 			"serializeForm",
@@ -574,6 +558,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"volunteerStatusCheck",
 			"makeEmergencyContactRow",
 			"makeVolunteerRow",
 			"preferredDepartments",
@@ -596,24 +581,24 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "php/updateVolunteer.php",
+					"file": "index2.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5026,
+						"buffer_size": 11610,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								78
+								2742,
+								2742
 							]
 						],
 						"settings":
@@ -622,57 +607,56 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1083.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "javascript/updateVolunteer.js",
-					"semi_transient": true,
+					"file": "javascript/loadVolunteer.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1978,
+						"buffer_size": 4788,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								284,
-								284
+								2085,
+								2085
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 969.0,
+						"translation.x": 0.0,
+						"translation.y": 684.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "index2.php",
+					"file": "php/updateVolunteer.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11356,
+						"buffer_size": 5027,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11234,
-								11234
+								4584,
+								4584
 							]
 						],
 						"settings":
@@ -681,104 +665,19 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6042.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "javascript/deleteVolunteer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1021,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								642,
-								642
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 228.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "php/deleteVolunteer.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 421,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								353,
-								353
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "php/createNewVolunteer.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6271,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								695,
-								695
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 886.0,
+						"translation.y": 2308.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "php/formValidation.php",
+					"buffer": 3,
+					"file": "php/databasePHPFunctions.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 229,
+						"buffer_size": 1162,
 						"regions":
 						{
 						},
@@ -791,42 +690,43 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 392.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "php/databasePHPFunctions.php",
+					"buffer": 4,
+					"file": "css/stylesheet.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1162,
+						"buffer_size": 2743,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								488,
-								488
+								2743,
+								2743
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3705.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -836,7 +736,7 @@
 			"sheets":
 			[
 				{
-					"buffer": 8,
+					"buffer": 5,
 					"semi_transient": false,
 					"settings":
 					{
@@ -849,6 +749,96 @@
 							[
 								0,
 								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 49,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								49,
+								49
 							]
 						],
 						"settings":
@@ -861,96 +851,6 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 10,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								101,
-								101
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1055,50 +955,25 @@
 			"hide_conflict": false,
 			"restore_index":
 			{
-				"178":
-				{
-					"group": 2,
-					"index": 0
-				},
-				"179":
-				{
-					"group": 1,
-					"index": 0
-				},
-				"180":
-				{
-					"group": 2,
-					"index": 1
-				},
-				"181":
-				{
-					"group": 1,
-					"index": 1
-				},
-				"199":
+				"15":
 				{
 					"group": 0,
 					"index": 0
 				},
-				"214":
+				"17":
 				{
 					"group": 0,
 					"index": 3
 				},
-				"215":
-				{
-					"group": 0,
-					"index": 2
-				},
-				"219":
-				{
-					"group": 0,
-					"index": 4
-				},
-				"221":
+				"21":
 				{
 					"group": 0,
 					"index": 1
+				},
+				"23":
+				{
+					"group": 0,
+					"index": 2
 				}
 			},
 			"restore_layout":
@@ -1108,32 +983,18 @@
 					[
 						0,
 						0,
-						2,
+						1,
 						1
-					],
-					[
-						0,
-						1,
-						1,
-						2
-					],
-					[
-						1,
-						1,
-						2,
-						2
 					]
 				],
 				"cols":
 				[
 					0.0,
-					0.5,
 					1.0
 				],
 				"rows":
 				[
 					0.0,
-					0.693801652893,
 					1.0
 				]
 			}
