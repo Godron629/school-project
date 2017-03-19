@@ -1,10 +1,5 @@
 <?php
 
-/*
-* Gideon Richter 2/22/2017
-* These functions allow a programmer to interact with a mysql database
-*/
-
 function db_connect() {
 	static $connection;
 
