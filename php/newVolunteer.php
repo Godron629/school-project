@@ -1,8 +1,8 @@
-<!DOCTYPE html> <!-- Gideon Richter 2/22/2017 -->
+<!DOCTYPE html>
 <html>
 <head>
 	<title>New Volunteer</title>
-	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 
 	<!-- jQuery  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,11 +17,11 @@
   	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />	
 
 	<!-- Default Scripts -->
-	<script src="javascript/newVolunteer.js"></script>
+	<script src="../javascript/newVolunteer.js"></script>
 </head>
 <body class="wrapper">
 
-	<h1><img id="logo" src="images/logo.gif">New Volunteer</h1>
+	<h1><img id="logo" src="../images/logo.gif">New Volunteer</h1>
 	<div id="topRightNav">
 		<a href="#">Time Clock</a>
 		<a href="#">Logout</a>
@@ -33,8 +33,8 @@
 			<li>
 				<a class="active">Manage Volunteers</a>
 				<ul class="dropdown">
-					<li><a href="index.php">New Volunteer</a></li>
-					<li><a href="index2.php">Update Volunteer</a></li>
+					<li><a href="newVolunteer.php">New Volunteer</a></li>
+					<li><a href="updateVolunteer.php">Update Volunteer</a></li>
 					<li><a href="#">Update Time Entries</a></li>
 				</ul>
 			</li>
@@ -45,7 +45,7 @@
 	<div class="container main">
 		<div class="container leftSide blockLabels marginBottomTextBox" id="volunteerInformation">
 			<h2>Volunteer Information</h2>
-			<form action="php/createNewVolunteer.php" id="volunteerForm" method="POST">
+			<form action="" id="volunteerForm" method="POST">
 				<div id="volunteerInformationColumn1">
 					<label for="volunteerFirstName">First Name:</label>
 					<input id="volunteerFirstName" type="text" name="volunteerFirstName" required>
@@ -217,7 +217,7 @@
 				</div>
 			</div>
 			<div class="container bigButtons" id="submitButtons">
-				<a href="index.php"><button type="button">Cancel</button></a>
+				<a href="newVolunteer_submit.php"><button type="button">Cancel</button></a>
 				<input type="submit" name="submitVolunteer">
 			</div>
 		</form>

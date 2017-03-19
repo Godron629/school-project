@@ -1,5 +1,5 @@
 <?php 
-include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/php/databaseFunctions.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/php/formValidation.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {

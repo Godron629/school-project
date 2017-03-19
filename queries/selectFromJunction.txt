@@ -1,1 +1,0 @@
-select DISTINCT volunteer.volunteer_fname, emergency_contact.emergency_contact_fname, emergency_contact_relationship FROM jnct_volunteer_emergency_contact JOIN volunteer on jnct_volunteer_emergency_contact.volunteer_fk = volunteer.volunteer_id JOIN emergency_contact on jnct_volunteer_emergency_contact.emergency_contact_fk = emergency_contact.emergency_contact_id;

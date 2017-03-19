@@ -19,7 +19,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: 'POST', 
 			data: $("#volunteerForm").serialize(),
-			url : '../php/createNewVolunteer.php',
+			url : '../php/newVolunteer_submit.php',
 			success : function(data) {
 				$("#successDialog").dialog("open");			
 			}

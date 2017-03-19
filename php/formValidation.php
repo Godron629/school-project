@@ -9,6 +9,5 @@ function regexForPhone($phone) {
    $phone = preg_replace("([^0-s]+)", "", $phone);
    return $phone;
 }
-	
 
 ?>

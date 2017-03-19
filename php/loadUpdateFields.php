@@ -1,4 +1,4 @@
-<?php include 'databasePHPFunctions.php';
+<?php include 'databaseFunctions.php';
 
 $volunteerId = $_POST['id']; 
 

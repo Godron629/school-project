@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/php/databasePHPFunctions.php";
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/php/databaseFunctions.php";
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$volunteerId = db_quote($_POST["id"]);
