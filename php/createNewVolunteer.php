@@ -7,9 +7,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 function createVolunteer() {
-/*	if(volunteerExists()) {
+	if(volunteerExists()) {
 		die("Error: Volunteer already exists");
-	} */
+	} 
 
 	//If successful, makeVolunteerRow returns new row Id, making this true
 	if ($volunteerId = makeVolunteerRow()) {
