@@ -32,7 +32,6 @@ if(!isset($_SESSION['user_id'])) {
 
 	<h1><img id="logo" src="../images/logo.gif">New Volunteer</h1>
 	<div id="topRightNav">
-		<a href="#">Time Clock</a>
 		<a href="logout.php" class="loginButton">Logout</a>
 	</div>
 

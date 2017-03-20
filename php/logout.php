@@ -13,7 +13,6 @@ session_destroy();
 </head>
 
 <body>
-	<a href="login.php">Login</a>
 	<div id="loginBox" class="container centerAlign">
 		<p>You have been logged out.</p>
 		<a href="http://www.google.com" class="loginButton">Leave</a>

@@ -12,8 +12,8 @@ if(isset($_SESSION['user_id'])) {
 ?>
 
 <body>
-<a href="addUser.php">Add New User</a>
 <div id="loginBox" class="container centerAlign">
+	<img id="loginLogo" src="../images/logo.gif">
 	<h2>Admin Login</h2>
 	<form class="loginButtons" action="login_submit.php" method="post">
 		<fieldset>

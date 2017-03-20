@@ -82,14 +82,12 @@ elseif (ctype_alnum($_POST['password']) != true) {
     </script>
 </head>
 <body>
-    <a href="login.php">Login</a>
     <div id="loginBox" class="container centerAlign">
         <?php
 
         if($message === "You are now logged in") {
             echo '<p>' . $message . '</p>
-            <a href="addUser.php" class="loginButton">Add New User</a>
-            <a href="newVolunteer.php" class="loginButton">Go to Admin Site</a>
+            <a href="home.php" class="loginButton">Continue to Admin Site</a>
             ';
 
         } else {

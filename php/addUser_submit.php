@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['user_id'])) {
+    header('Location: loginRequired.php');
+}
+
 if(!isset( $_POST['username'], $_POST['password'], $_POST['form_token'])) {
     $message = 'Please enter a valid username and password';
 }
@@ -85,13 +89,12 @@ else
 
 </head>
 <body>
-    <a href="login.php">Login</a>
     <div id="loginBox" class="container centerAlign">
     <?php
 
         if($message === "New User Added") {
             echo '<p>' . $message . '</p>
-            <a href="login.php" class="loginButton">Login</a>  ';
+            <a href="home.php" class="loginButton">Go Home</a>  ';
         } else {
             echo '<p>' . $message . '</p>
             <a href="#" onclick="goBack()" class="loginButton">Back</a>

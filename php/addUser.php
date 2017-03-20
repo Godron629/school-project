@@ -14,11 +14,16 @@ $_SESSION['form_token'] = $form_token;
 <head>
 	<title>Add User</title>
 	<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+	<script>
+	function goBack() {
+		window.history.back();
+	}
+	</script>
 </head>
 
 <body>
-<a href="login.php">Login</a>
 <div id="loginBox" class="container centerAlign">
+	<img id="loginLogo" src="../images/logo.gif">
 	<h2>Add User</h2>
 	<form action="addUser_submit.php" class="loginButtons" method="post">
 		<fieldset>
@@ -33,7 +38,10 @@ $_SESSION['form_token'] = $form_token;
 		</p>
 
 		<p>
+		<button type="button" onclick="goBack()">Cancel</button>
+		
 		<input type="hidden" name="form_token" value="<?php echo $form_token; ?>">
+
 		<input type="submit">
 		</p>
 		</fieldset>

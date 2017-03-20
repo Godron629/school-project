@@ -10,7 +10,6 @@
 	</script>
 </head>
 <body>
-	<a href="../index.html">Home</a>
 	<div id="loginBox" class="container centerAlign">
 		<p>You must be logged in to see that page.</p>
 		
