@@ -1,3 +1,12 @@
+<?php
+session_start(); 
+
+if(!isset($_SESSION['user_id'])) {
+    header('Location: loginRequired.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +33,7 @@
 	<h1><img id="logo" src="../images/logo.gif">New Volunteer</h1>
 	<div id="topRightNav">
 		<a href="#">Time Clock</a>
-		<a href="#">Logout</a>
+		<a href="logout.php" class="loginButton">Logout</a>
 	</div>
 
 	<div id="mainNav">
