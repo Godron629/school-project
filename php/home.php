@@ -36,9 +36,10 @@ if($result = db_select($sql)) {
 
 	<div id="mainNav">
 		<ul>
+			<li class="active"><a href="home.php">Home</a></li>
 			<li><a href="#">Calendar</a></li>
 			<li>
-				<a class="active">Manage Volunteers</a>
+				<a>Manage Volunteers</a>
 				<ul class="dropdown">
 					<li><a href="newVolunteer.php">New Volunteer</a></li>
 					<li><a href="updateVolunteer.php">Update Volunteer</a></li>

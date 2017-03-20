@@ -47,6 +47,7 @@ if(!isset($_SESSION['user_id'])) {
 
 	<div id="mainNav">
 		<ul>
+			<li><a href="home.php">Home</a></li>
 			<li><a href="#">Calendar</a></li>
 			<li>
 				<a class="active">Manage Volunteers</a>
