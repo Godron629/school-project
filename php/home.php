@@ -29,7 +29,7 @@ if($result = db_select($sql)) {
 </head>
 <body class="wrapper">
 
-	<h1><img id="logo" src="../images/logo.gif">Home</h1>
+	<h1><a href="home.php"><img id="logo" src="../images/logo.gif"></a>Home</h1>
 	<div id="topRightNav">
 		<a href="logout.php" class="loginButton">Logout</a>
 	</div>

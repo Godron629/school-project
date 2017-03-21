@@ -220,10 +220,10 @@
 	"buffers":
 	[
 		{
-			"file": "php/newVolunteer.php",
+			"file": "php/test.php",
 			"settings":
 			{
-				"buffer_size": 9730,
+				"buffer_size": 156,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -252,7 +252,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 357.0,
 		"last_filter": "stop",
 		"selected_items":
 		[
@@ -262,7 +262,7 @@
 			],
 			[
 				"start",
-				"Xdebug: Restart Session"
+				"Xdebug: Start Debugging (Launch Browser)"
 			],
 			[
 				"res",
@@ -305,7 +305,7 @@
 				"Build With: C++ Single File"
 			]
 		],
-		"width": 512.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -327,24 +327,27 @@
 	[
 		"/C/wamp64/www",
 		"/C/wamp64/www/css",
+		"/C/wamp64/www/images",
 		"/C/wamp64/www/javascript",
 		"/C/wamp64/www/php"
 	],
 	"file_history":
 	[
+		"/C/wamp64/www/php/test.xml",
+		"/C/wamp64/www/php/newVolunteer.php",
+		"/C/wamp64/www/php/updateVolunteer.php",
+		"/C/wamp64/www/php/home.php",
+		"/C/wamp64/www/php/loginRequired.php",
 		"/C/wamp64/www/php/addUser.php",
+		"/C/wamp64/www/php/addUser_submit.php",
 		"/C/wamp64/www/php/login_submit.php",
 		"/C/wamp64/www/php/login.php",
-		"/C/wamp64/www/php/addUser_submit.php",
 		"/C/wamp64/www/php/logout.php",
-		"/C/wamp64/www/php/updateVolunteer.php",
-		"/C/wamp64/www/index.html",
-		"/C/wamp64/www/php/loginRequired.php",
-		"/C/wamp64/www/css/stylesheet.css",
-		"/C/wamp64/www/javascript/goBack.js",
 		"/C/wamp64/logs/php_error.log",
+		"/C/wamp64/www/css/stylesheet.css",
+		"/C/wamp64/www/index.html",
+		"/C/wamp64/www/javascript/goBack.js",
 		"/C/Users/Gideon/Desktop/indieTechCodeSample.txt",
-		"/C/wamp64/www/php/newVolunteer.php",
 		"/C/wamp64/www/php/newVolunteer_submit.php",
 		"/C/wamp64/www/php/formValidation.php",
 		"/C/wamp64/www/php/databaseFunctions.php",
@@ -547,25 +550,24 @@
 			[
 				{
 					"buffer": 0,
-					"file": "php/newVolunteer.php",
+					"file": "php/test.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9730,
+						"buffer_size": 156,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								108,
-								108
+								117,
+								117
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -662,15 +664,10 @@
 			"hide_conflict": false,
 			"restore_index":
 			{
-				"24":
+				"50":
 				{
 					"group": 0,
 					"index": 0
-				},
-				"27":
-				{
-					"group": 0,
-					"index": 1
 				}
 			},
 			"restore_layout":

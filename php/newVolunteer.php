@@ -30,7 +30,7 @@ if(!isset($_SESSION['user_id'])) {
 </head>
 <body class="wrapper">
 
-	<h1><img id="logo" src="../images/logo.gif">New Volunteer</h1>
+	<h1><a href="home.php"><img id="logo" src="../images/logo.gif"></a>New Volunteer</h1>
 	<div id="topRightNav">
 		<a href="logout.php" class="loginButton">Logout</a>
 	</div>
