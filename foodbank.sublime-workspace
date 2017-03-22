@@ -1,0 +1,706 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"include",
+				"includeInactiveCheck"
+			],
+			[
+				"emer",
+				"emergencyContactId"
+			],
+			[
+				"volun",
+				"volunteerId"
+			],
+			[
+				"seri",
+				"serialize"
+			],
+			[
+				"updae",
+				"updateVolunteerForm"
+			],
+			[
+				"ser",
+				"serialize"
+			],
+			[
+				"confirm",
+				"confirmChangesDialog"
+			],
+			[
+				"updateVolu",
+				"updateVolunteerForm"
+			],
+			[
+				"success",
+				"successDialog"
+			],
+			[
+				"rege",
+				"regexForPhone"
+			],
+			[
+				"bind_result",
+				"mysqli_bind_result"
+			],
+			[
+				"regex",
+				"regexForNames"
+			],
+			[
+				"emergency_ca",
+				"emergency_contact_lname"
+			],
+			[
+				"remove",
+				"removeSymbolsFromText"
+			],
+			[
+				"array_key",
+				"array_key_exists"
+			],
+			[
+				"change",
+				"changeForm"
+			],
+			[
+				"fieldName",
+				"fieldNameToDatabaseColumn"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"colum",
+				"columnName"
+			],
+			[
+				"map",
+				"mapFieldToColumn"
+			],
+			[
+				"chang",
+				"changedFields"
+			],
+			[
+				"keysOf",
+				"keysOfChangedFields"
+			],
+			[
+				"chagn",
+				"changedFields"
+			],
+			[
+				"json_",
+				"json_encode"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
+				"eme",
+				"emerContactColumns"
+			],
+			[
+				"key",
+				"keysOfFieldsThatChanged"
+			],
+			[
+				"keys",
+				"keysOfFieldsThatChanged"
+			],
+			[
+				"sea",
+				"serializedForm"
+			],
+			[
+				"or",
+				"origForm"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"loadPre",
+				"loadPreferredAvailIntoFields"
+			],
+			[
+				"load",
+				"loadPreferredAvailibility"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"block",
+				"blockLabels"
+			],
+			[
+				"bloc",
+				"blockLabels"
+			],
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"volunteer",
+				"volunteerDOB"
+			],
+			[
+				"emergency_con",
+				"emergency_contact_id"
+			],
+			[
+				"emergencyCon",
+				"emergencyContactExists"
+			],
+			[
+				"makePref",
+				"makePreferredDepartmentRecord"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"join",
+				"joinVolunteerAndEmergencyContact"
+			],
+			[
+				"make",
+				"makeEmergencyContactRecord"
+			],
+			[
+				"real_escape",
+				"mysql_real_escape_string"
+			],
+			[
+				"emergen",
+				"emergency_contact_fname"
+			],
+			[
+				"redirect",
+				"redirectAfter5Seconds"
+			],
+			[
+				"real_esca",
+				"mysql_real_escape_string"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"list-style",
+				"list-style-type"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "php/test.php",
+			"settings":
+			{
+				"buffer_size": 156,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 357.0,
+		"last_filter": "stop",
+		"selected_items":
+		[
+			[
+				"stop",
+				"Xdebug: Stop Debugging (Close Windows)"
+			],
+			[
+				"start",
+				"Xdebug: Start Debugging (Launch Browser)"
+			],
+			[
+				"res",
+				"Xdebug: Restart Session"
+			],
+			[
+				"re",
+				"Xdebug: Restart Session"
+			],
+			[
+				"rest",
+				"Xdebug: Restart Session"
+			],
+			[
+				"rese",
+				"Xdebug: Restart Session"
+			],
+			[
+				"star",
+				"Xdebug: Start Debugging (Launch Browser)"
+			],
+			[
+				"restar",
+				"Xdebug: Restart Session"
+			],
+			[
+				"stop de",
+				"Xdebug: Stop Debugging (Close Windows)"
+			],
+			[
+				"restart",
+				"Xdebug: Restart Session"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Build With: C++ Single File"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp64/www",
+		"/C/wamp64/www/css",
+		"/C/wamp64/www/images",
+		"/C/wamp64/www/javascript",
+		"/C/wamp64/www/php"
+	],
+	"file_history":
+	[
+		"/C/wamp64/www/php/test.xml",
+		"/C/wamp64/www/php/newVolunteer.php",
+		"/C/wamp64/www/php/updateVolunteer.php",
+		"/C/wamp64/www/php/home.php",
+		"/C/wamp64/www/php/loginRequired.php",
+		"/C/wamp64/www/php/addUser.php",
+		"/C/wamp64/www/php/addUser_submit.php",
+		"/C/wamp64/www/php/login_submit.php",
+		"/C/wamp64/www/php/login.php",
+		"/C/wamp64/www/php/logout.php",
+		"/C/wamp64/logs/php_error.log",
+		"/C/wamp64/www/css/stylesheet.css",
+		"/C/wamp64/www/index.html",
+		"/C/wamp64/www/javascript/goBack.js",
+		"/C/Users/Gideon/Desktop/indieTechCodeSample.txt",
+		"/C/wamp64/www/php/newVolunteer_submit.php",
+		"/C/wamp64/www/php/formValidation.php",
+		"/C/wamp64/www/php/databaseFunctions.php",
+		"/C/wamp64/www/javascript/newVolunteer.js",
+		"/C/wamp64/www/newVolunteer.php",
+		"/C/wamp64/www/php/updateVolunteer_submit.php",
+		"/C/wamp64/www/php/loadUpdateFields.php",
+		"/C/wamp64/www/php/deleteVolunteer.php",
+		"/C/wamp64/www/updateVolunteer.php",
+		"/C/wamp64/www/javascript/updateVolunteer.js",
+		"/C/wamp64/www/php/databasePHPFunctions.php",
+		"/C/wamp64/www/addUser.php",
+		"/C/wamp64/www/login.php",
+		"/C/wamp64/www/php/test.php",
+		"/C/wamp64/www/login_submit.php",
+		"/C/wamp64/www/php/createNewVolunteer.php",
+		"/C/wamp64/www/adduser_submit.php",
+		"/C/wamp64/www/members.php",
+		"/C/wamp64/www/css/addUser.php",
+		"/C/wamp64/www/javascript/loadVolunteer.js",
+		"/C/wamp64/www/index2.php",
+		"/C/wamp64/www/javascript/deleteVolunteer.js",
+		"/C/wamp64/www/index.php",
+		"/C/wamp64/www/Reports/vIndiInfo.php",
+		"/C/wamp64/logs/apache_error.log",
+		"/C/wamp64/logs/mysql.log",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/wamp64/www/foodbank.sublime-project",
+		"/C/wamp64/www/javascript/databaseColumnNames.json",
+		"/C/wamp64/bin/apache/apache2.4.23/bin/php.ini",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/Users/Gideon/Desktop/index.js",
+		"/C/wamp64/www/php/test.js",
+		"/C/wamp64/www/php/testphp.php",
+		"/C/wamp64/www/php/test.html",
+		"/C/wamp64/www/php/testjs.js",
+		"/C/Users/Gideon/Desktop/temp/loadFieldsFromDatabase.php",
+		"/C/wamp64/www/myPHPFiles/createNewVolunteer.php",
+		"/C/wamp64/www/myPHPFiles/test.php",
+		"/C/wamp64/www/myPHPFiles/databasePHPFunctions.php",
+		"/C/wamp64/www/myPHPFiles/updateVolunteer.php",
+		"/C/wamp64/www/updateVolunteer.js",
+		"/C/wamp64/www/myPHPFiles/databaseClass.php",
+		"/C/wamp64/www/myPHPFiles/volunteerClass.php",
+		"/C/wamp64/www/myPHPFiles/postClass.php",
+		"/C/wamp64/www/test.php",
+		"/C/wamp64/www/README.md",
+		"/C/wamp64/www/createNewVolunteer.php",
+		"/C/wamp64/www/databasePHPFunctions.php",
+		"/C/wamp64/www/selectFromJunction.txt",
+		"/C/wamp64/www/stylesheet.css",
+		"/C/Users/Gideon/Desktop/foodbank 26 Feb before Preferred.sql",
+		"/C/wamp64/www/braydn.html",
+		"/C/Users/Gideon/Desktop/volunteer.sql",
+		"/C/wamp64/www/testJQuery.js",
+		"/C/wamp64/www/updateVolunteerInformation.php",
+		"/C/wamp64/www/updateVolunteerInformation.html",
+		"/C/wamp64/www/newVolunteerFunctions.php",
+		"/C/wamp64/www/newVolunteerConfirmation.php",
+		"/C/Users/Gideon/Documents/food_bank_project/addVolunteer.php",
+		"/C/Users/Gideon/Documents/food_bank_project/index.html",
+		"/C/Users/Gideon/Desktop/index.html",
+		"/C/Users/Gideon/Desktop/stylesheet.css",
+		"/C/Users/Gideon/Google Drive/College/Operating Systems Theory/Chapter 6 Notes",
+		"/C/wamp64/bin/apache/apache2.4.23/conf/httpd.conf",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/dontEnterTheNumber.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/colaMachine.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/gradingProgram.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/multiplicationTable.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/structures1.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/structures.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/php/test.php",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/test.cpp",
+		"/C/Users/Gideon/AppData/Roaming/Sublime Text 3/Packages/User/test1.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Back",
+			"exce",
+			"createNewVolunteer.php",
+			"updateVolunteer_sub",
+			"newVolunteer_",
+			"newVolunteer.php",
+			"databasePHPFunctions.php",
+			"newVolunteer",
+			"newVolunteer_submit",
+			"createNewVolunteer.php",
+			"index.php",
+			"index2.php",
+			"index.php",
+			"index2.php",
+			"updateVolunteer.php",
+			"updateVolunteer",
+			"updateVol",
+			"updateVolunteer.php",
+			"index2.php",
+			"container",
+			"volunteerActiveCheck",
+			"emergen",
+			"serial",
+			"serializeForm",
+			"makeEmergencyContactRecord",
+			"makeEmergencyContactRow",
+			"makeVolunteerRecord",
+			"selectedDepartments",
+			"getDepartmentsFromForm",
+			"makePreferredDepartmentRecord",
+			"getDaysAndShiftsFromForm",
+			"makePreferredAvailabilityRecord",
+			"wasAutoIncrementQuerySuccesful",
+			"incrementS",
+			"wasAuto",
+			"($",
+			"hidden",
+			"active",
+			"var",
+			"event.preventDefault();",
+			"select",
+			"$self",
+			"dropdown",
+			"postition",
+			"select",
+			"9",
+			"postco",
+			"?",
+			"();\n",
+			"foreach($row as $value) {\n\t\t\techo $value;\n\t\t}",
+			"\"]);\n",
+			"echo",
+			"volunteerGender",
+			"mysqli",
+			"form",
+			"form ",
+			"form",
+			"select",
+			"volunteerInformationLeft",
+			"500px",
+			"<input type=\"submit\" name=\"clearVolunteer\" value=\"Clear\">",
+			"<input type=\"submit\" name=\"submitVolunteer\">",
+			"frontRadio",
+			"frontCheck",
+			">\n",
+			"mondayCheck",
+			"\">\n",
+			"index.php",
+			"car1",
+			"string",
+			"car1",
+			"string",
+			";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"databaseFunctions.php",
+			"updateVolunteer.php",
+			"volunteerStatusCheck",
+			"makeEmergencyContactRow",
+			"makeVolunteerRow",
+			"preferredDepartments",
+			"getPrefDeptFromForm",
+			"makePrefDeptRow",
+			"getPrefAvailFromForm",
+			"makePrefAvailRow",
+			"newRowId",
+			"this\nthis\nthis",
+			"frontCheck",
+			"frontRadio",
+			"tuesdayCheck"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "php/test.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								117,
+								117
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 229.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "foodbank.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"50":
+				{
+					"group": 0,
+					"index": 0
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 230.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
