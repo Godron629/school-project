@@ -1,0 +1,52 @@
+<timeclock>
+
+<entry>
+<id>-1</id>
+<name>-1</name>
+<clockIn>-1</clockIn>
+<clockOut>-1</clockOut>
+</entry>
+
+<entry>
+<id>-2</id>
+<name>-2</name>
+<clockIn>-2</clockIn>
+<clockOut>-2</clockOut>
+</entry>
+
+ <entry>
+<id>7</id>
+<name>Mike Richter</name>
+<clockIn>21:45:23</clockIn>
+<clockOut></clockOut>
+</entry>
+
+ <entry>
+<id>5</id>
+<name>Ryan  Lockett</name>
+<clockIn>21:45:27</clockIn>
+<clockOut>21:50:16</clockOut>
+</entry>
+
+ <entry>
+<id>5</id>
+<name>Ryan  Lockett</name>
+<clockIn>21:50:29</clockIn>
+<clockOut>21:50:36</clockOut>
+</entry>
+
+ <entry>
+<id>2</id>
+<name>Erin  Richter</name>
+<clockIn>21:50:32</clockIn>
+<clockOut></clockOut>
+</entry>
+
+ <entry>
+<id>9</id>
+<name>Travis Sipko</name>
+<clockIn>21:52:16</clockIn>
+<clockOut>21:52:29</clockOut>
+</entry>
+
+ </timeclock>

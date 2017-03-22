@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeClock>
+<clockEntry>
+<id>1</id>
+<date>2017-03-14</date>
+<time>10:00am</time>
+<type>IN</type>
+</clockEntry>
+<clockEntry>
+<id>2</id>
+<date>2017-03-14</date>
+<time>10:00am</time>
+<type>IN</type>
+</clockEntry>
+<clockEntry>
+<id>2</id>
+<date>2017-03-14</date>
+<time>12:00pm</time>
+<type>OUT</type>
+</clockEntry>
+</timeClock>
