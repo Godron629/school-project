@@ -81,7 +81,7 @@ elseif (ctype_alnum($_POST['password']) != true) {
         }
     </script>
 </head>
-<body class="Loginwrapper">
+<body>
     <div id="loginBox" class="centerAlign">
         <?php
 

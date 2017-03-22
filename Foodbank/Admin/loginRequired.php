@@ -14,7 +14,7 @@
 		<p>You must be logged in to see that page.</p>
 		
 		<a href="#" onclick="goBack()" class="loginButton">Back</a>
-		<a href="/Foodbank/" class="loginButton">Login</a>
+		<a href="/Foodbank/login.php" class="loginButton">Login</a>
 	</div>
 </body>
 </html>

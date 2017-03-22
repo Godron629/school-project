@@ -2,7 +2,7 @@
 session_start(); 
 
 if(!isset($_SESSION['user_id'])) {
-    header('Location: loginRequired.php');
+    header('Location: /Foodbank/Admin/loginRequired.php');
 }
 
 ?>

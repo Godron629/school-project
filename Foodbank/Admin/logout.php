@@ -12,11 +12,11 @@ session_destroy();
 	<link rel="stylesheet" type="text/css" href="/Foodbank/css/stylesheet.css">
 </head>
 
-<body class="Loginwrapper">
+<body>
 	<div id="loginBox" class="centerAlign">
 		<p>You have been logged out.</p>
 		<a href="http://www.google.com" class="loginButton">Leave</a>
-		<a href="/Foodbank/" class="loginButton">Login</a>
+		<a href="/Foodbank/login.php" class="loginButton">Login</a>
 	</div>
 </body>
 </html>

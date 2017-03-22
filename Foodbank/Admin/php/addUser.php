@@ -21,31 +21,32 @@ $_SESSION['form_token'] = $form_token;
 	</script>
 </head>
 
-<body class='Loginwrapper'>
-<div id="loginBox" class="centerAlign">
-	<img id="loginLogo" src="/Foodbank/images/logo.gif">
-	<h2>Add User</h2>
-	<form action="addUser_submit.php" class="loginButtons" method="post">
-		<fieldset>
-		<p>
-		<label for="username">Username</label>
-		<input type="text" id="username" name="username" value="" maxlength="20">
-		</p>
+<body>
+	<div id="loginBox" class="centerAlign">
+		<img id="loginLogo" src="/Foodbank/images/logo.gif">
+		<h2>Add User</h2>
 
-		<p>
-		<label for="password">Password</label>
-		<input type="text" id="password" name="password" value="" maxlength="20">
-		</p>
+		<form id="addUserForm" action="addUser_submit.php" class="loginButtons" method="post">
+			<fieldset>
+			<p>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" value="" maxlength="20">
+			</p>
 
-		<p>
-		<button type="button" onclick="goBack()">Cancel</button>
-		
-		<input type="hidden" name="form_token" value="<?php echo $form_token; ?>">
+			<p>
+			<label for="password">Password</label>
+			<input type="text" id="password" name="password" value="" maxlength="20">
+			</p>
 
-		<input type="submit">
-		</p>
-		</fieldset>
-	</form>
-</div>
+			<p>
+			<button type="button" onclick="goBack()">Cancel</button>
+			
+			<input type="hidden" name="form_token" value="<?php echo $form_token; ?>">
+
+			<input type="submit">
+			</p>
+			</fieldset>
+		</form>
+	</div>
 </body>
 </html>

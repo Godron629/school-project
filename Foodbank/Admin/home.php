@@ -66,6 +66,12 @@ if($result = db_select($sql)) {
 					<li><a href="logout.php">Logout</a></li>
 				</ul>
 			</li>
+			<li>Calendar
+				<ul>
+					<li><a href="/Foodbank/Calendar/">Calendar Main</a></li>
+					<li><a href="/Foodbank/Calendar/newEntry.php">New Calendar Entry</a></li>
+				</ul>
+			</li>
 			<li>Manage Volunteers 
 				<ul>
 					<li><a href="/Foodbank/Volunteer/newVolunteer.php">New Volunteer</a></li>

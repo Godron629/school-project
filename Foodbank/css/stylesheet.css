@@ -8,7 +8,7 @@
 	overflow: auto;
 }
 
-.Loginwrapper {
+/*.Loginwrapper {
 	position: relative;
 	top: 100px;
 	width: 500px;
@@ -17,7 +17,7 @@
 	background-color: white;
 	border-radius: 8px;
 	border: 2px solid #CCC;
-}
+}*/
 
 .container {
 	padding: 5px;
@@ -252,6 +252,9 @@ input[type='checkbox'] {
 
 #loginBox {
 	position: relative;
+	top: 100px;
+	height: 300px;
+	width: 500px;
 	margin: 0 auto;
 	background-color: white;
 	border-radius: 8px;
@@ -277,8 +280,9 @@ a.loginButton {
 	width: 90px;
 }
 
-
-
+#addUserForm {
+	margin-top: 40px;
+}
 
 
 /*Submit Buttons */

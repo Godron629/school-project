@@ -88,7 +88,7 @@ else
     </script>
 
 </head>
-<body class="Loginwrapper">
+<body>
     <div id="loginBox" class="container centerAlign">
     <?php
 

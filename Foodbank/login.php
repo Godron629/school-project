@@ -11,31 +11,32 @@ if(isset($_SESSION['user_id'])) {
 } 
 ?>
 
-<body class="Loginwrapper">
-<div id="loginBox" class="centerAlign">
+<body>
+	<div id="loginBox" class="centerAlign">
 		<div id="topRightNav">
-		<a href="/Foodbank/TimeClock/index.php">Time Clock</a>
+			<a href="/Foodbank/TimeClock/index.php">Time Clock</a>
+		</div>
+		
+		<a href="/Foodbank/login.php"><img id="loginLogo" src="images/logo.gif"></a>
+		<h2>Admin Login</h2><br>
+		<form class="loginButtons" action="/Foodbank/Admin/login_submit.php" method="post">
+			<fieldset>
+			<p>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" value="" maxlength="20" />
+			</p>
+
+			<p>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" value="" maxlength="20" />
+			</p>
+
+			<p>
+			<input type="submit" value="Login" />
+			</p>
+			</fieldset>
+		</form>
 	</div>
-	<a href="/Foodbank/"><img id="loginLogo" src="images/logo.gif"></a>
-	<h2>Admin Login</h2><br>
-	<form class="loginButtons" action="/Foodbank/Admin/login_submit.php" method="post">
-		<fieldset>
-		<p>
-		<label for="username">Username</label>
-		<input type="text" id="username" name="username" value="" maxlength="20" />
-		</p>
-
-		<p>
-		<label for="password">Password</label>
-		<input type="password" id="password" name="password" value="" maxlength="20" />
-		</p>
-
-		<p>
-		<input type="submit" value="Login" />
-		</p>
-		</fieldset>
-	</form>
-</div>
 </body>
 </html>
 
